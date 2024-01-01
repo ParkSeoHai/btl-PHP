@@ -73,4 +73,11 @@ if (!$conn) {
 
     // Tao bang thong bao
     mysqli_query($conn, $tbThongBao);
+
+    // Insert data
+    $insertQuyen = "INSERT INTO quyen (tenquyen) VALUES ('Admin'), ('Teacher'), ('Student')";
+    mysqli_query($conn, $insertQuyen);
+    $insertAdmin = "INSERT INTO nguoidung (hodem, ten, email, matkhau, sodienthoai, ngaytao, quyenId) VALUES 
+        ('Nguyen Van', 'A', 'admin@gmail.com', '123456', '0123456789', '2024-01-01 00:00:00', 1)";
+    mysqli_query($conn, $insertAdmin);
 }

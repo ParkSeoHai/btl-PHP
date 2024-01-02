@@ -1,17 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>KhoaHocONLINE</title>
-</head>
-<body>
-    <div class="main">
-        <div class="row">
+<?php
+// Lấy controller và action từ URL
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'Pages';
+$action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
-        </div>
-    </div>
-</body>
-</html>
+require_once('routes.php');

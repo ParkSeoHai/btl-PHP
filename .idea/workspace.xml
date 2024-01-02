@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="288496b1-98fa-4404-be03-079153cafb5f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/createDatabase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +53,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.add.doc.comment.for.fields.panel.add.php.doc&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -70,7 +72,10 @@
       <updated>1704120558862</updated>
       <workItem from="1704120559897" duration="3213000" />
       <workItem from="1704123865697" duration="3187000" />
-      <workItem from="1704127165135" duration="750000" />
+      <workItem from="1704127165135" duration="9624000" />
+      <workItem from="1704188673000" duration="1202000" />
+      <workItem from="1704189898757" duration="191000" />
+      <workItem from="1704197256242" duration="8462000" />
     </task>
     <servers />
   </component>

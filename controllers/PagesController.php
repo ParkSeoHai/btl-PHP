@@ -10,21 +10,23 @@ class PagesController extends BaseController
         $this->folder = 'pages';
     }
 
-    public function home()
+    public function index()
     {
-        if(isset($_SESSION['userAdmin'])){
-            $this->render('home');
-        }
-        $this->render('home');
+        $this->render('index', array(),false);
     }
 
-    public function login()
+    public function home()
     {
-        $this->render('login');
+        $data = array(
+            'name' => 'Nguyễn Văn A',
+            'age' => 20,
+            'address' => 'Hà Nội'
+        );
+        $this->render('home', $data);
     }
 
     public function error()
     {
-        $this->render('error');
+        $this->render('error', array(), false);
     }
 }

@@ -21,19 +21,11 @@ class NguoiDungController extends BaseController
     public function dangNhap($email, $password)
     {
         $nguoiDung = $this->nguoiDung->dangNhap($email, $password);
-        if ($nguoiDung != null) {
-            if($nguoiDung['idQuyen'] == 1){             // Quyền 1: Admin
-                $_SESSION['userAdmin'] = $nguoiDung['id'];
-                header('Location: /btl/index.php?controller=Pages&action=home');
-            } else if($nguoiDung['idQuyen'] == 2){      // Quyền 2: Giáo viên
-                $_SESSION['userTeacher'] = $nguoiDung['id'];
-                header('Location: /btl/index.php?controller=Pages&action=home');
-            } else if($nguoiDung['idQuyen'] == 3){      // Quyền 3: Sinh viên
-                $_SESSION['userStudent'] = $nguoiDung['id'];
-                header('Location: /btl/index.php?controller=Pages&action=error');
-            }
+        if($nguoiDung != null) {
+            $_SESSION['user'] = $nguoiDung;
+            header('Location: /btl/index.php?controller=Pages&action=home');
         } else {
-            header('Location: /btl/index.php?controller=Pages&action=error');
+            header('Location: /btl/index.php?controller=Pages&action=login');
         }
     }
 }

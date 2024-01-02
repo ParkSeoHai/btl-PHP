@@ -1,0 +1,281 @@
+/*start-main-index*/
+.main-index{
+    background-image: linear-gradient(to right, #ff5757 , #8c52ff);
+    min-height: 960px;
+    display: flex;
+    align-items: center;
+}
+.img-index{
+    width: 500px;
+}
+.img-index img{
+    width: 100%;
+    border-radius: 40px;
+}
+.title-index{
+    margin-top: 80px;
+}
+.title-index h1{
+    font-weight: 700;
+    font-size: 6rem;
+    color: #156669;
+    margin-bottom: 40px;
+}
+.title-index span{
+    font-size: 2rem;
+    color: #156669;
+}
+.title-index a{
+    background: #eeecde;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    margin-top: 40px;
+    border: #156669 1px solid;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    color: #156669;
+    margin-left: 10px;
+}
+.title-index a:hover{
+    background: #d2ccbf;
+}
+/*end-main-index*/
+/*start-login-view*/
+.login-view{
+    background-image: linear-gradient(to right, #ff5757 , #8c52ff);
+    height: 955px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-view-content{
+    width: 25%;
+    text-align: center;
+    background: white;
+    border: 3px solid black;
+    min-height: 300px;
+    padding: 30px;
+    border-radius: 20px;
+}
+.login-view-content h1{
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+.login-view-content i{
+    font-size: 3.5rem;
+    display: inline-block;
+}
+.login-view-content a{
+    color: black;
+}
+.login-view-content .user-name{
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+.login-view-content .password{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.login-view-content .user-name input{
+    width: 90%;
+    padding: 6px 5px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+.login-view-content .password input{
+    width: 90%;
+    padding: 6px 5px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+.login-view-content .remember-fogot-pass{
+    margin: 30px 0;
+}
+.login-view-content .btn-login{
+    padding-bottom: 30px;
+    margin: 0 30px;
+    border-bottom: 2px solid black;
+}
+.login-view-content .btn-login button{
+    padding: 20px 120px;
+    background: #eeecde;
+    color: #156669;
+    border-radius: 5px;
+    border: 1px solid #156669;
+}
+.login-view-content .btn-login button:hover{
+    background: #d2ccbf;
+}
+.login-view-content span{
+    margin-top: 30px;
+    display: block;
+}
+/*end-login-view*/
+/*start-register-view*/
+.register-view{
+    background-image: linear-gradient(to right, #ff5757 , #8c52ff);
+    height: 955px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-view-content{
+    width: 25%;
+    text-align: center;
+    background: white;
+    border: 3px solid black;
+    min-height: 300px;
+    padding: 30px;
+    border-radius: 20px;
+}
+.register-view-content h1{
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+.register-view-content i{
+    font-size: 3.5rem;
+    display: inline-block;
+}
+.register-view-content .user-name{
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+.register-view-content .user-name input{
+    width: 90%;
+    padding: 6px 5px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+.register-view-content .input-email{
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+.register-view-content .input-email input{
+    width: 90%;
+    padding: 6px 5px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+.register-view-content .password{
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+.register-view-content .password input{
+    width: 90%;
+    padding: 6px 5px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+.register-view-content .password-lv2{
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+.register-view-content .password-lv2 input{
+    width: 90%;
+    padding: 6px 5px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+.register-view-content .checkbox-dksd{
+    text-align: left;
+    margin-bottom: 30px;
+}
+.register-view-content .btn-register {
+    padding: 20px 120px;
+    background: #eeecde;
+    color: #156669;
+    border-radius: 5px;
+    border: 1px solid #156669;
+    margin: 0 30px;
+}
+.register-view-content .btn-register button:hover{
+    background: #d2ccbf;
+}
+/*end-register-view*/
+/*start-fogot-pass*/
+.fogot-pass-view{
+    background-image: linear-gradient(to right, #ff5757 , #8c52ff);
+    height: 955px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fogot-pass-view-content{
+    width: 25%;
+    text-align: center;
+    background: white;
+    border: 3px solid black;
+    min-height: 300px;
+    padding: 30px;
+    border-radius: 20px;
+}
+.fogot-pass-view-content i{
+    font-size: 3.5rem;
+    display: inline-block;
+}
+.fogot-pass-view-content .send-code{
+    margin-left: 10px;
+}
+.fogot-pass-view-content .send-code:hover{
+    color: #8c52ff;
+}
+.fogot-pass-view-content h1{
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+.fogot-pass-view-content .input-email{
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+.fogot-pass-view-content span{
+    display: block;
+}
+.fogot-pass-view-content .input-email input{
+    width: 90%;
+    padding: 6px 5px;
+    margin-left: 30px;
+    border-radius: 8px;
+}
+.fogot-pass-view-content .verification-codes{
+    width: 304px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    padding: 6px 5px;
+    margin-left: 65px;
+    border-radius: 8px;
+}
+.fogot-pass-view-content .checkbox-dksd{
+    text-align: left;
+    margin-bottom: 30px;
+}
+.fogot-pass-view-content .btn-fogot-pass{
+    padding: 20px 120px;
+    background: #eeecde;
+    color: #156669;
+    border-radius: 5px;
+    border: 1px solid #156669;
+}
+.fogot-pass-view-content .btn-fogot-pass:hover{
+    background: #d2ccbf;
+}
+/*end-fogot-pass*/

@@ -6,11 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Đăng Nhập</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/fonts/font.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="../../assets/fonts/font.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
     <div class="login-view">
@@ -30,7 +30,7 @@
                     <label for="remember-pass">Remember me</label>
                 </div>
                 <div class="fogot-register">
-                    <a href="fogot-pass-view.php">Quên mật khẩu</a>/<a href="register-view.php">Đăng kí</a>
+                    <a href="forgot-pass.php">Quên mật khẩu</a>/<a href="register.php">Đăng kí</a>
                 </div>
             </div>
             <div class="btn-login">

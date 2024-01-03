@@ -80,22 +80,21 @@ html, body {
     color: black;
 }
 .login-view-content .user-name{
-    width: 100%;
     margin-bottom: 25px;
-    display: flex;
-    align-items: center;
 }
-.login-view-content .password{
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
+
 .login-view-content .user-name input{
     width: 90%;
     padding: 6px 5px;
     margin-left: 30px;
     border-radius: 8px;
 }
+
+.login-view-content .user-name input.required,
+.login-view-content .password input.required {
+    border: 2px solid red;
+}
+
 .login-view-content .password input{
     width: 90%;
     padding: 6px 5px;
@@ -151,11 +150,22 @@ html, body {
     font-size: 3.5rem;
     display: inline-block;
 }
+
+.register-view-content .message {
+    display: block;
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-align: start;
+    margin-left: 65px;
+}
+
+.register-view-content input.error {
+    border: 2px solid red;
+}
+
 .register-view-content .user-name{
-    width: 100%;
     margin-bottom: 25px;
-    display: flex;
-    align-items: center;
 }
 .register-view-content .user-name input{
     width: 90%;
@@ -166,8 +176,6 @@ html, body {
 .register-view-content .input-email{
     width: 100%;
     margin-bottom: 25px;
-    display: flex;
-    align-items: center;
 }
 .register-view-content .input-email input{
     width: 90%;
@@ -178,8 +186,6 @@ html, body {
 .register-view-content .password{
     width: 100%;
     margin-bottom: 25px;
-    display: flex;
-    align-items: center;
 }
 .register-view-content .password input{
     width: 90%;
@@ -190,8 +196,6 @@ html, body {
 .register-view-content .password-lv2{
     width: 100%;
     margin-bottom: 25px;
-    display: flex;
-    align-items: center;
 }
 .register-view-content .password-lv2 input{
     width: 90%;

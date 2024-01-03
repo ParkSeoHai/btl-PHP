@@ -2,7 +2,7 @@
 
 namespace models;
 
-class Admin extends NguoiDung
+class GiangVien extends NguoiDung
 {
     public function __construct(
         int $id = 0,
@@ -11,21 +11,21 @@ class Admin extends NguoiDung
         string $matKhau = "",
         string $soDienThoai = "",
         string $ngayTao = "",
-        int $idQuyen = 0
+        int $idQuyen = 3
     )
     {
         parent::__construct($id, $ten, $email, $matKhau, $soDienThoai, $ngayTao, $idQuyen);
     }
 
-    // Get all user admin
+    // Get all giang vien
     public function getAll(): array
     {
-        $sql = "SELECT * FROM nguoiDung WHERE quyenId = 1";
+        $sql = "SELECT * FROM nguoiDung WHERE id_quyen = 2";
         $result = parent::$conn->query($sql);
-        $listUser = array();
+        $giangViens = array();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $user = new Admin(
+                $giangVien = new GiangVien(
                     $row['id'],
                     $row['hoten'],
                     $row['email'],
@@ -34,9 +34,9 @@ class Admin extends NguoiDung
                     $row['ngaytao'],
                     $row['quyenId']
                 );
-                array_push($listUser, $user);
+                array_push($giangViens, $giangVien);
             }
         }
-        return $listUser;
+        return $giangViens;
     }
 }

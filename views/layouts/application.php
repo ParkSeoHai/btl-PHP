@@ -40,7 +40,7 @@
 
     <main class="d-flex main-content">
         <!-- Navbar -->
-        <form action="" class="navbar-content">
+        <nav action="" class="navbar-content">
             <div class="navbar-member d-flex flex-column">
                 <a href=""><i class="bi bi-houses"></i> Trang chủ</a>
                 <a href=""><i class="bi bi-universal-access"></i> Người dùng</a>
@@ -51,7 +51,7 @@
                 <a href=""><i class="bi bi-megaphone"></i> Thông báo hệ thống</a>
                 <a href="" class="mt-5"><i class="bi bi-arrow-return-left"></i> Thoát</a>
             </div>
-        </form>
+        </nav>
         <nav style="width: 200px; height: 200px; background-color: #ff5757"></nav>
         <!-- Content -->
         <div class="main-content">

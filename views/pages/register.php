@@ -13,31 +13,53 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
-    <div class="register-view">
+    <form class="register-view form-register" method="post" action="../../assets/php/register.php">
         <div class="register-view-content">
             <h1>ĐĂNG KÍ</h1>
+            <div class="error-register text-start text-danger mb-4 fw-bold">
+                <?php
+                    if(isset($_COOKIE['errorRegister'])) {
+                        echo $_COOKIE['errorRegister'];
+                    }
+                ?>
+            </div>
             <div class="user-name">
-                <i class="bi bi-person-circle"></i>
-                <input type="text" placeholder="Tên đăng nhập">
+                <div class="d-flex align-items-center w-100">
+                    <label for="username"><i class="bi bi-person-circle"></i></label>
+                    <input type="text" id="username" name="username" placeholder="Tên người dùng">
+                </div>
+            </div>
+            <div class="user-name">
+                <div class="d-flex align-items-center w-100">
+                    <label for="phone-number"><i class="bi bi-telephone"></i></label>
+                    <input type="text" id="phone-number" name="phoneNumber" placeholder="Số điện thoại">
+                </div>
             </div>
             <div class="input-email">
-                <i class="bi bi-envelope"></i>
-                <input type="email" placeholder="Email">
+                <div class="d-flex align-items-center w-100">
+                    <label for="email"><i class="bi bi-envelope"></i></label>
+                    <input type="email" id="email" name="email" placeholder="Email">
+                </div>
             </div>
             <div class="password">
-                <i class="bi bi-shield-lock"></i>
-                <input type="password" placeholder="Mật khẩu">
+                <div class="d-flex align-items-center w-100">
+                    <label for="password"><i class="bi bi-shield-lock"></i></label>
+                    <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                </div>
             </div>
             <div class="password-lv2">
-                <i class="bi bi-shield-lock"></i>
-                <input type="password" placeholder="Mật khẩu">
+                <div class="d-flex align-items-center w-100">
+                    <label for="password-confirm"><i class="bi bi-shield-lock-fill"></i></label>
+                    <input type="password" id="password-confirm" name="password-confirm" placeholder="Xác nhận mật khẩu">
+                </div>
             </div>
             <div class="checkbox-dksd">
-                    <input id="remember-pass" type="checkbox">
-                    <label for="remember-pass">Tôi đồng ý với điều khoản sử dụng</label>
+                <input id="agree" name="agree" type="checkbox">
+                <label for="agree">Tôi đồng ý với điều khoản sử dụng</label>
             </div>
-            <button class="btn-register" type="button">Đăng kí</button>
+            <button class="btn-register" type="submit">Đăng ký</button>
         </div>
-    </div>
+    </form>
+    <script src="../../assets/js/validateFormRegister.js"></script>
 </body>
 </html>

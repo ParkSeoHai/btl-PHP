@@ -17,8 +17,7 @@ if (!$conn) {
 
     $tbNguoiDung = "CREATE TABLE nguoidung (
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            hodem VARCHAR(30) NOT NULL,
-            ten VARCHAR(20) NOT NULL,
+            hoten VARCHAR(100) NOT NULL,
             email VARCHAR(100) NOT NULL UNIQUE,
             matkhau VARCHAR(100) NOT NULL,
             sodienthoai VARCHAR(15) NOT NULL,
@@ -77,7 +76,10 @@ if (!$conn) {
     // Insert data
     $insertQuyen = "INSERT INTO quyen (tenquyen) VALUES ('Admin'), ('Teacher'), ('Student')";
     mysqli_query($conn, $insertQuyen);
-    $insertAdmin = "INSERT INTO nguoidung (hodem, ten, email, matkhau, sodienthoai, ngaytao, quyenId) VALUES 
-        ('Nguyen Van', 'A', 'admin@gmail.com', '123456', '0123456789', '2024-01-01 00:00:00', 1)";
+
+    $password_hash = password_hash('123456', PASSWORD_DEFAULT);
+    $insertAdmin = "INSERT INTO nguoidung (hoten, email, matkhau, sodienthoai, ngaytao, quyenId) VALUES 
+        ('Nguyen Van A', 'admin@gmail.com', '$password_hash', '0123456789', '2024-01-01 00:00:00', 1),
+        ('Park Seo Hai', 'parkseohai@gmail.com', '$password_hash', '0333301536', '2024-01-01 00:00:00', 3)";
     mysqli_query($conn, $insertAdmin);
 }

@@ -2,9 +2,7 @@
 
 namespace models;
 
-use Cassandra\Date;
-
-require_once('../../connection.php');
+require_once('connection.php');
 
 class NguoiDung
 {
@@ -104,7 +102,6 @@ class NguoiDung
         $this->soDienThoai = $soDienThoai;
         $this->ngayTao = $ngayTao;
         $this->idQuyen = $idQuyen;
-        self::$conn = \connection::getConnection();
     }
 
     // Get date time now
@@ -118,7 +115,7 @@ class NguoiDung
     public function dangnhap($email, $matKhau) : array|null
     {
         $sql = "SELECT * FROM nguoiDung WHERE email = '$email'";
-        $row = self::$conn->query($sql)->fetch_assoc();
+        $row = connection::getConnection()->query($sql)->fetch_assoc();
 
         if(password_verify($matKhau, $row['matkhau'])){
             return array(
@@ -138,7 +135,7 @@ class NguoiDung
     public function dangKy($user) : bool {
         $sql = "INSERT INTO nguoiDung(hoten, email, matkhau, sodienthoai, ngaytao, quyenId) VALUES 
                 ('$user->ten', '$user->email', '$user->matKhau', '$user->soDienThoai', '$user->ngayTao', '$user->idQuyen')";
-        if(self::$conn->query($sql)) {
+        if(connection::getConnection()->query($sql)) {
             return true;
         }
         return false;
@@ -148,7 +145,7 @@ class NguoiDung
     public function checkEmail($email) : bool
     {
         $sql = "SELECT * FROM nguoiDung WHERE email = '$email'";
-        $result = self::$conn->query($sql);
+        $result = connection::getConnection()->query($sql);
         if($result->num_rows > 0) {
             return true;
         }
@@ -159,7 +156,7 @@ class NguoiDung
     public function getAll() : array
     {
         $sql = "SELECT * FROM nguoiDung";
-        $result = self::$conn->query($sql);
+        $result = connection::getConnection()->query($sql);
         $listUser = array();
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
@@ -182,7 +179,7 @@ class NguoiDung
     public function getById($id) : NguoiDung
     {
         $sql = "SELECT * FROM nguoiDung WHERE id = '$id'";
-        $row = self::$conn->query($sql)->fetch_assoc();
+        $row = connection::getConnection()->query($sql)->fetch_assoc();
         $user = new NguoiDung(
             $row['id'],
             $row['hoten'],
@@ -195,6 +192,14 @@ class NguoiDung
         return $user;
     }
 
+    // Lấy quyền của người dùng
+    public function getRole($idQuyen) : string
+    {
+        $sql = "SELECT * FROM quyen WHERE id = '$idQuyen'";
+        $row = connection::getConnection()->query($sql)->fetch_assoc();
+        return $row['tenquyen'];
+    }
+
     // Thêm người dùng
     public function add($user) : bool
     {
@@ -202,7 +207,7 @@ class NguoiDung
         $passwordDefault = password_hash('123456', PASSWORD_DEFAULT);
         $sql = "INSERT INTO nguoiDung(hoten, email, matkhau, sodienthoai, ngaytao, quyenId) VALUES 
                 ('$user->ten', '$user->email', '$passwordDefault', '$user->soDienThoai', '$user->ngayTao', '$user->idQuyen')";
-        if(self::$conn->query($sql)) {
+        if(connection::getConnection()->query($sql)) {
             return true;
         }
         return false;
@@ -213,7 +218,7 @@ class NguoiDung
     {
         $sql = "UPDATE nguoiDung SET hoten = '$user->ten', email = '$user->email', sodienthoai = '$user->soDienThoai', 
                 quyenId = '$user->idQuyen' WHERE id = '$user->id'";
-        if(self::$conn->query($sql)) {
+        if(connection::getConnection()->query($sql)) {
             return true;
         }
         return false;
@@ -227,7 +232,7 @@ class NguoiDung
                 LEFT JOIN hocVien ON hocVien.nguoiDungId = nguoiDung.id 
                 LEFT JOIN thongBao ON thongBao.nguoiDungId = nguoiDung.id 
                 WHERE nguoiDung.id = '$id'";
-        if(self::$conn->query($sql)) {
+        if(connection::getConnection()->query($sql)) {
             return true;
         }
         return false;

@@ -1,4 +1,10 @@
-
+html, body {
+    width: 100%;
+    height: 100%;
+}
+.main-content{
+    height: 95%;
+}
 /*start-main-index*/
 .main-index{
     background-image: linear-gradient(to right, #ff5757 , #8c52ff);
@@ -284,3 +290,65 @@
     background: #d2ccbf;
 }
 /*end-fogot-pass*/
+/*start-header*/
+.header{
+    width: 100%;
+    height: 64px;
+    background: #545454;
+}
+.logo-thuong-hieu{
+    width: 64px;
+    height: 64px;
+    margin-left: 50px;
+}
+.logo-thuong-hieu img{
+    height: 100%;
+}
+.header-search{
+    background: white;
+    color: #545454;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+.header-search input{
+    outline: none;
+    border: none;
+    padding-right: 100px;
+}
+.header-left{
+    margin-right: 50px;
+    color: white;
+}
+.header-left i{
+    font-size: 16px;
+    padding: 5px;
+    border: white 1px solid;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 5px;
+}
+.number-thongbao{
+    position: absolute;
+    background: red;
+    color: white;
+    padding: 1px 3px;
+    border-radius: 50%;
+    right: -5px;
+    top: -3px;
+    font-size: 1.2rem;
+}
+.navbar-member{
+    background: #6b6b6b;
+    height: 100%;
+}
+.navbar-member a{
+    color: white;
+    text-decoration: none;
+    padding: 25px 20px 25px 10px;
+    text-align: left;
+}
+.navbar-member a:hover{
+    background: #919191;
+}
+/*end-header*/

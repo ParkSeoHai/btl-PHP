@@ -5,33 +5,31 @@ namespace controllers;
 use models\NguoiDung;
 
 require_once('../../models/NguoiDung.php');
-require_once('BaseController.php');
-require_once('PagesController.php');
 
-class NguoiDungController extends BaseController
+class NguoiDungController
 {
     private NguoiDung $nguoiDung;
 
     public function __construct()
     {
-        $this->nguoiDung = new NguoiDung();
-        $this->folder = 'pages';
+
     }
 
     public function dangNhap($email, $password, $isRemember = false)
     {
+        $this->nguoiDung = new NguoiDung();
         $user = $this->nguoiDung->dangNhap($email, $password);
         if($user) {
             if($user['idQuyen'] == 3){
                 setcookie('errorLogin', 'Bạn không có quyền truy cập vào trang này', time() + 1, '/');
                 header('location: /btl/views/pages/login.php');
             } else {
+                session_start();
                 if($isRemember) {
                     // Lưu cookie trong 1 ngày
                     setcookie('userId', $user['id'], time() + 86400, '/');
                     header('location: /btl/index.php?controller=Pages&action=home');
                 }
-                session_start();
                 $_SESSION['userId'] = $user['id'];
                 header('location: /btl/index.php?controller=Pages&action=home');
             }
@@ -44,6 +42,7 @@ class NguoiDungController extends BaseController
     public function dangKy($user)
     {
         if($user) {
+            $this->nguoiDung = new NguoiDung();
             // Kiểm tra xem email đã tồn tại hay chưa?
             if($this->nguoiDung->checkEmail($user->getEmail())) {
                 setcookie('errorRegister', 'Lỗi: Email đã tồn tại', time() + 1, '/');

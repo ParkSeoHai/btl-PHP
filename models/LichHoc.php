@@ -61,7 +61,7 @@ class LichHoc
         $this->phongHoc = $phongHoc;
         $this->thoiGianBatDau = $thoiGianBatDau;
         $this->khoaHocId = $khoaHocId;
-        self::$conn = \connection::getConnection();
+        self::$conn = \models\connection::getConnection();
     }
 
     // Lấy danh sách lịch học theo khóa học

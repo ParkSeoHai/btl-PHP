@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05069736-c9aa-4f0b-aabd-292bd59763b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/btl-PHP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cocon..png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/NguoiDungController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/NguoiDungController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/KhoaHoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/KhoaHoc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LichHoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/LichHoc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/NguoiDung.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/NguoiDung.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Quyen.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Quyen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ThongBao.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/ThongBao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/application.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/error.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/home.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging parkseohai",
+    "git-widget-placeholder": "parkseohai",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -70,7 +76,7 @@
       <updated>1704252585585</updated>
       <workItem from="1704252592306" duration="811000" />
       <workItem from="1704254450330" duration="26551000" />
-      <workItem from="1704302797522" duration="2465000" />
+      <workItem from="1704302797522" duration="25752000" />
     </task>
     <servers />
   </component>

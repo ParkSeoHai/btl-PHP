@@ -86,7 +86,7 @@ class KhoaHoc
         $this->ngayTao = $ngayTao;
         $this->ngayCapNhat = $ngayCapNhat;
         $this->idNguoiDay = $idNguoiDay;
-        self::$conn = \connection::getConnection();
+        self::$conn = \models\connection::getConnection();
     }
 
     // Get date time now

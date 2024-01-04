@@ -3,7 +3,7 @@
 global $controller, $action;
 
 $controllers = array(
-    'Pages' => ['index', 'home', 'error'],
+    'Pages' => ['index', 'home', 'qlnguoidung', 'error'],
 );  // Các controllers trong hệ thống và các action có thể gọi ra từ controller đó.
 
 // Nếu các tham số nhận được từ URL không hợp lệ (không thuộc list controller và action có thể gọi

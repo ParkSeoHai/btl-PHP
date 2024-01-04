@@ -309,7 +309,7 @@ html, body {
     color: #545454;
     padding: 5px;
     border-radius: 5px;
-    margin-left: 50px;
+    margin-left: 120px;
 }
 .header-search input{
     outline: none;
@@ -317,9 +317,21 @@ html, body {
     padding-right: 100px;
 }
 .header-left{
+    display: flex;
+    align-items: center;
     margin-right: 50px;
     color: white;
 }
+
+.header-left .name-user {
+    font-size: 1.4rem;
+}
+
+.header-left .role-user {
+    margin-top: 4px;
+    font-size: 1.2rem;
+}
+
 .header-left i{
     font-size: 16px;
     padding: 5px;
@@ -338,17 +350,118 @@ html, body {
     top: -3px;
     font-size: 1.2rem;
 }
+
+.navbar-content {
+    width: 250px;
+}
+
 .navbar-member{
     background: #6b6b6b;
-    height: 100%;
+    height: calc(100vh - 64px);
 }
 .navbar-member a{
     color: white;
     text-decoration: none;
-    padding: 25px 20px 25px 10px;
+    padding: 15px 0 15px 25px;
     text-align: left;
+    font-size: 1.4rem;
 }
+
+.navbar-member a.active:hover,
+.navbar-member a.active {
+    background: #fff;
+    color: #333;
+}
+
 .navbar-member a:hover{
     background: #919191;
 }
 /*end-header*/
+
+/* Main content */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9e9e9;
+    width: 100%;
+    height: calc(100vh - 64px);
+}
+
+.main-content .content-body {
+    position: relative;
+    padding: 10px;
+    margin: 15px;
+    height: calc(100% - 40px);
+    width: 100%;
+    background-color: #fff;
+}
+
+.main-content .header-content {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.main-content .header-content .header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.main-content .header-content .header-action button {
+    font-size: 1.3rem;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Table */
+.main-content .body-content {
+    height: 335px;
+    overflow-y: scroll;
+}
+
+.main-content .table-content thead th {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 10px 5px;
+}
+
+.main-content .table-content tbody td,
+.main-content .table-content tbody th {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.table-content tbody td.actions a {
+    font-size: 1.4rem;
+    padding: 4px 10px;
+}
+
+.main-content .content-body .bottom-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(0px + 20px);
+    padding: 0 10px;
+}
+
+.bottom-content .pagination .page-item a {
+    font-size: 1.4rem;
+}
+
+@media (min-width: 1300px) {
+    .main-content .body-content {
+        height: auto;
+        overflow-y: unset;
+    }
+}
+
+/* Form add */
+.main-content .form-add {
+    padding: 10px;
+}
+
+.main-content .form-add select,
+.main-content .form-add option,
+.main-content .form-add input {
+    font-size: 1.4rem;
+}

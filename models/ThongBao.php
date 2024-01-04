@@ -87,7 +87,7 @@ class ThongBao
         $this->ngayTao = $ngayTao;
         $this->ngayCapNhat = $ngayCapNhat;
         $this->idNguoiTao = $idNguoiTao;
-        self::$conn = \connection::getConnection();
+        self::$conn = \models\connection::getConnection();
     }
 
     // Lấy danh sách thông báo

@@ -2,12 +2,16 @@
 
 namespace controllers;
 
+use models\LichHoc;
 use models\NguoiDung;
 
 require_once('../../models/NguoiDung.php');
+require_once('../../models/LichHoc.php');
+
 class AdminController
 {
     private NguoiDung $nguoiDung;
+    private LichHoc $lichHoc;
 
     public function __construct()
     {
@@ -20,7 +24,7 @@ class AdminController
     }
 
     // Thêm người dùng
-    public function addUser($username, $email, $phoneNumber, $role) {
+    public function addUser($username, $email, $phoneNumber, $role) : void {
         $this->nguoiDung = new NguoiDung();
         $this->nguoiDung->setTen($username);
         $this->nguoiDung->setEmail($email);
@@ -39,7 +43,7 @@ class AdminController
     }
 
     // Sửa người dùng
-    public function updateUser($id, $username, $email, $phoneNumber, $role) {
+    public function updateUser($id, $username, $email, $phoneNumber, $role) :void {
         $this->nguoiDung = new NguoiDung();
         $this->nguoiDung->setId($id);
         $this->nguoiDung->setTen($username);
@@ -59,7 +63,7 @@ class AdminController
     }
 
     // Xóa người dùng
-    public function removeUser($id) {
+    public function removeUser($id) : void {
         $this->nguoiDung = new NguoiDung();
         $isRemove = $this->nguoiDung->delete($id);
         if($isRemove) {
@@ -68,6 +72,51 @@ class AdminController
         } else {
             setcookie('message', 'Xóa người dùng thất bại', time() + 1, '/');
             header("Location: /btl/index.php?controller=Pages&action=qlnguoidung");
+        }
+    }
+
+    // Thêm lịch học
+    public function addLichHoc($courseId, $ngayBatDau, $infoPhongHoc) : void {
+        // Set default value for infoPhongHoc
+        $infoPhongHoc = $infoPhongHoc ?? "Chưa có thông tin phòng học";
+
+        // True if success, false if fail
+        $this->lichHoc = new LichHoc(0, $infoPhongHoc, $ngayBatDau, $courseId);
+        if($this->lichHoc->add($this->lichHoc)) {
+            setcookie('message', 'Thêm lịch học thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qllichhoc");
+        } else {
+            setcookie('message', 'Thêm lịch học thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qllichhoc");
+        }
+    }
+
+    // Sửa lịch học
+    public function updateLichHoc($id, $courseId, $ngayBatDau, $infoPhongHoc) : void {
+        // Set default value for infoPhongHoc
+        $infoPhongHoc = $infoPhongHoc ?? "Chưa có thông tin phòng học";
+
+        // True if success, false if fail
+        $this->lichHoc = new LichHoc($id, $infoPhongHoc, $ngayBatDau, $courseId);
+        if($this->lichHoc->update($this->lichHoc)) {
+            setcookie('message', 'Cập nhật lịch học thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qllichhoc");
+        } else {
+            setcookie('message', 'Cập nhật lịch học thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qllichhoc");
+        }
+    }
+
+    // Xóa lịch học
+    public function removeLichHoc($id) : void {
+        $this->lichHoc = new LichHoc();
+        $isRemove = $this->lichHoc->delete($id);
+        if($isRemove) {
+            setcookie('message', 'Xóa lịch học thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qllichhoc");
+        } else {
+            setcookie('message', 'Xóa lịch học thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qllichhoc");
         }
     }
 }

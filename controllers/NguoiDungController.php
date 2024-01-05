@@ -23,6 +23,9 @@ class NguoiDungController
                 setcookie('errorLogin', 'Bạn không có quyền truy cập vào trang này', time() + 1, '/');
                 header('location: /btl/views/pages/login.php');
             } else {
+                // Lưu cookie thông báo
+                setcookie('message', 'Đăng nhập thành công', time() + 1, '/');
+                // Set session
                 session_start();
                 if($isRemember) {
                     // Lưu cookie trong 1 ngày

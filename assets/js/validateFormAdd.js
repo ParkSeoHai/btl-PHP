@@ -1,7 +1,7 @@
 const formAdd = document.querySelector('.form-add');
 const btnSubmitAdduser = formAdd.querySelector('.btn-submit-add');
 
-function validateFormAddUser(form) {
+function validateFormAdd(form) {
     let isSubmit = true;
 
     // Xóa các message cũ nếu có
@@ -62,7 +62,7 @@ function validateFormAddUser(form) {
         if(option.selected) {
             // Value option phải lớn hơn 0
             if(option.value <= 0) {
-                const messageHtml = "<span class='message-select fs-5 ps-1 pt-4 fw-bold text-danger'>Vui lòng chọn quyền</span> ";
+                const messageHtml = "<span class='message-select fs-5 ps-1 pt-4 fw-bold text-danger'>Vui lòng chọn giá trị</span> ";
                 document.querySelector('.form-select').insertAdjacentHTML('afterend', messageHtml);
                 isSubmit = false;
             } else {
@@ -78,5 +78,5 @@ function validateFormAddUser(form) {
 
 btnSubmitAdduser.addEventListener('click', (e) => {
     e.preventDefault();
-    validateFormAddUser(formAdd);
+    validateFormAdd(formAdd);
 });

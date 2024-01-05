@@ -59,4 +59,10 @@ class NguoiDungController
             header('location: /btl/views/pages/register.php');
         }
     }
+
+    public function dangXuat()
+    {
+        $this->nguoiDung = new NguoiDung();
+        $this->nguoiDung->dangXuat();
+    }
 }

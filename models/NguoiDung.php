@@ -157,6 +157,19 @@ class NguoiDung
         }
     }
 
+    // Phương thức đăng xuất
+    public function dangXuat() : void
+    {
+        session_start();
+        if(isset($_SESSION['userId'])) {
+            unset($_SESSION['userId']);
+        }
+        if(isset($_COOKIE['userId'])) {
+            setcookie('userId', '', time() - 3600, '/');
+        }
+        header('location: /btl/views/pages/login.php');
+    }
+
     // Lấy danh sách người dùng
     public function getAll() : array
     {

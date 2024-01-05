@@ -51,7 +51,7 @@
                 <a href=""><i class="bi bi-person-fill-gear"></i> Tài khoản</a>
                 <a href=""><i class="bi bi-reception-4"></i> Thống kê</a>
                 <a href=""><i class="bi bi-megaphone"></i> Thông báo hệ thống</a>
-                <a href="" class="mt-5"><i class="bi bi-arrow-return-left"></i> Thoát</a>
+                <a href="/btl/assets/php/logout.php" class="mt-5"><i class="bi bi-arrow-return-left"></i> Thoát</a>
             </div>
         </nav>
         <!-- Content -->

@@ -11,7 +11,7 @@ if(!isset($_SESSION['userId'])){      // Nếu chưa đăng nhập thì chuyển
 } else {                            // Nếu đã đăng nhập thì chuyển hướng đến trang chủ
     // Lấy controller và action từ URL
     $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Pages';
-    $action = isset($_GET['action']) ? $_GET['action'] : 'error';
+    $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
     require_once('routes.php');
 }

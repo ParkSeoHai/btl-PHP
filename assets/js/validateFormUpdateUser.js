@@ -1,5 +1,14 @@
-const formAdd = document.querySelector('.form-add');
-const btnSubmitAdduser = formAdd.querySelector('.btn-submit-add');
+const formUpdates = document.querySelectorAll('.form-update');
+if(formUpdates) {
+    formUpdates.forEach(formUpdate => {
+        const btnSubmitUpdate = formUpdate.querySelector('.btn-submit-update');
+
+        btnSubmitUpdate.addEventListener('click', (e) => {
+            e.preventDefault();
+            validateFormAddUser(formUpdate);
+        });
+    });
+}
 
 function validateFormAddUser(form) {
     let isSubmit = true;
@@ -57,16 +66,16 @@ function validateFormAddUser(form) {
 
     // Xử lý seclect
     const options = form.querySelectorAll('.form-select option');
-    if(document.querySelector('.message-select')) document.querySelector('.message-select').remove();
+    if(form.querySelector('.message-select')) form.querySelector('.message-select').remove();
     options.forEach(option => {
         if(option.selected) {
             // Value option phải lớn hơn 0
             if(option.value <= 0) {
                 const messageHtml = "<span class='message-select fs-5 ps-1 pt-4 fw-bold text-danger'>Vui lòng chọn quyền</span> ";
-                document.querySelector('.form-select').insertAdjacentHTML('afterend', messageHtml);
+                form.querySelector('.form-select').insertAdjacentHTML('afterend', messageHtml);
                 isSubmit = false;
             } else {
-                if(document.querySelector('.message-select')) document.querySelector('.message-select').remove();
+                if(form.querySelector('.message-select')) form.querySelector('.message-select').remove();
             }
         }
     });
@@ -76,7 +85,3 @@ function validateFormAddUser(form) {
     }
 }
 
-btnSubmitAdduser.addEventListener('click', (e) => {
-    e.preventDefault();
-    validateFormAddUser(formAdd);
-});

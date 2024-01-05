@@ -13,12 +13,12 @@ class PagesController extends BaseController
 {
     private NguoiDung $nguoiDung;
     private Quyen $quyen;
+    private string $userId;
 
     public function __construct()
     {
         $this->folder = 'pages';
-        $this->nguoiDung = new NguoiDung();
-        $this->quyen = new Quyen();
+        $this->userId = $_SESSION['userId'];
     }
 
     public function index()
@@ -28,12 +28,14 @@ class PagesController extends BaseController
 
     public function home()
     {
-        $user = $this->nguoiDung->getById($_SESSION['userId']);
+        $this->nguoiDung = new NguoiDung();
+        // Lấy thông tin người dùng đang đăng nhập
+        $user = $this->nguoiDung->getById($this->userId);
 
         $data = array(
             'title' => 'Trang chủ',
-            'user' => $user,
-            'role' => $user->getRole($user->getIdQuyen())
+            'userInfo' => $user,
+            'role' => $this->nguoiDung->getRole($user->getIdQuyen())
         );
 
         $this->render('home', $data);
@@ -42,20 +44,33 @@ class PagesController extends BaseController
     // Trang quản lý người dùng
     public function qlnguoidung()
     {
+        $this->nguoiDung = new NguoiDung();
         // Lấy thông tin người dùng đang đăng nhập
-        $user = $this->nguoiDung->getById($_SESSION['userId']);
+        $user = $this->nguoiDung->getById($this->userId);
 
-        // Lấy danh sách người dùng
-        $listUser = $this->nguoiDung->getAll();
+        // Lấy pagination từ URL nếu có
+        $pagination = $_GET['pag'] ?? 1;
+
+        // Số lượng người dùng trên 1 trang
+        $result_per_page = 10;
+
+        // Lấy danh sách người dùng theo pagination
+        $listUser = $this->nguoiDung->getAllByPagination(($pagination - 1) * $result_per_page, $result_per_page);
+
+        // Lấy tổng số người dùng
+        $total_records = count($this->nguoiDung->getAll());
 
         // Lấy danh sách quyền
+        $this->quyen = new Quyen();
         $listRole = $this->quyen->getAll();
 
         $data = array(
             'title' => 'Quản lý người dùng',
-            'user' => $user,
-            'role' => $user->getRole($user->getIdQuyen()),
-            'listUser' => $listUser,
+            'pagination' => $pagination,
+            'userInfo' => $user,
+            'role' => $this->nguoiDung->getRole($user->getIdQuyen()),
+            'listUserPage' => $listUser,
+            'total_records' => $total_records,
             'listRole' => $listRole
         );
         $this->render('qlnguoidung', $data);

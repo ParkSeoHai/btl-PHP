@@ -141,21 +141,49 @@ class NguoiDung
         return false;
     }
 
-    // Phương thức kiểm tra xem email đã tồn tại hay chưa?
-    public function checkEmail($email) : bool
+    // Phương thức kiểm tra xem email đã tồn tại hay chưa? (true: đã tồn tại, false: chưa tồn tại)
+    public function checkEmail($id, $email) : bool
     {
-        $sql = "SELECT * FROM nguoiDung WHERE email = '$email'";
+        // Nếu id > 0 thì là cập nhật người dùng, không kiểm tra email
+        $sql = "SELECT email FROM nguoiDung WHERE id = '$id'";
         $result = connection::getConnection()->query($sql);
-        if($result->num_rows > 0) {
-            return true;
+        $row = $result->fetch_assoc();
+        if($row['email'] == $email) {
+            return false;
+        } else {
+            $sql = "SELECT * FROM nguoiDung WHERE email = '$email'";
+            $result = connection::getConnection()->query($sql);
+            return $result->num_rows > 0;
         }
-        return false;
     }
 
     // Lấy danh sách người dùng
     public function getAll() : array
     {
         $sql = "SELECT * FROM nguoiDung";
+        $result = connection::getConnection()->query($sql);
+        $listUser = array();
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $user = new NguoiDung(
+                    $row['id'],
+                    $row['hoten'],
+                    $row['email'],
+                    $row['matkhau'],
+                    $row['sodienthoai'],
+                    $row['ngaytao'],
+                    $row['quyenId']
+                );
+                array_push($listUser, $user);
+            }
+        }
+        return $listUser;
+    }
+
+    // Lấy danh sách người dùng theo pagination
+    public function getAllByPagination($page_first_result, $results_per_page) : array
+    {
+        $sql = "SELECT * FROM nguoiDung LIMIT $page_first_result, $results_per_page";
         $result = connection::getConnection()->query($sql);
         $listUser = array();
         if($result->num_rows > 0) {
@@ -201,16 +229,18 @@ class NguoiDung
     }
 
     // Thêm người dùng
-    public function add($user) : bool
+    public function add(NguoiDung $user) : bool
     {
         // Mặc định mật khẩu là 123456
-        $passwordDefault = password_hash('123456', PASSWORD_DEFAULT);
+        $user->matKhau = password_hash('123456', PASSWORD_DEFAULT);
+        // Ngày tạo là ngày hiện tại
+        $user->ngayTao = $this->getDateTimeNow();
+
+        // Query thêm người dùng
         $sql = "INSERT INTO nguoiDung(hoten, email, matkhau, sodienthoai, ngaytao, quyenId) VALUES 
-                ('$user->ten', '$user->email', '$passwordDefault', '$user->soDienThoai', '$user->ngayTao', '$user->idQuyen')";
-        if(connection::getConnection()->query($sql)) {
-            return true;
-        }
-        return false;
+                ('$user->ten', '$user->email', '$user->matKhau', '$user->soDienThoai', '$user->ngayTao', '$user->idQuyen')";
+
+        return connection::getConnection()->query($sql);
     }
 
     // Cập nhật người dùng
@@ -218,10 +248,8 @@ class NguoiDung
     {
         $sql = "UPDATE nguoiDung SET hoten = '$user->ten', email = '$user->email', sodienthoai = '$user->soDienThoai', 
                 quyenId = '$user->idQuyen' WHERE id = '$user->id'";
-        if(connection::getConnection()->query($sql)) {
-            return true;
-        }
-        return false;
+
+        return connection::getConnection()->query($sql);
     }
 
     // Xóa người dùng
@@ -232,10 +260,8 @@ class NguoiDung
                 LEFT JOIN hocVien ON hocVien.nguoiDungId = nguoiDung.id 
                 LEFT JOIN thongBao ON thongBao.nguoiDungId = nguoiDung.id 
                 WHERE nguoiDung.id = '$id'";
-        if(connection::getConnection()->query($sql)) {
-            return true;
-        }
-        return false;
+
+        return connection::getConnection()->query($sql);
     }
     // Xóa các bảng có liên quan đến người dùng: khoahoc, hocvien, thongbao
 //    public function deleteAll($id) : bool

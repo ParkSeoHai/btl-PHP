@@ -66,12 +66,7 @@ if(isset($listRole)) {
     ";
 }
 
-// Print table user
-if(isset($listUserPage)) {
-    // Gán start = pagination (giá trị bắt đầu của STT)
-    $start = $pagination * 10 - 9;
-
-    $htmlTable = "
+$htmlTable = "
     <table class='table table-light table-striped table-content'>
         <thead>
             <tr>
@@ -87,6 +82,10 @@ if(isset($listUserPage)) {
         <tbody class='table-group-divider'>
     ";
 
+// Print table user
+if(isset($listUserPage)) {
+    // Gán start = pagination (giá trị bắt đầu của STT)
+    $start = $pagination * 10 - 9;
 
     foreach($listUserPage as $user) {
         $htmlTable .= "
@@ -152,6 +151,11 @@ if(isset($listUserPage)) {
         $start++;
         $userCountTable++;
     }
+
+    $htmlTable .= "
+            </tbody>
+        </table>
+    ";
 }
 
 $htmlBottom  = "
@@ -173,8 +177,8 @@ $htmlBottom .= "    </ul>
             </div>
         </div>
     </div>
-    <script src='../../assets/js/validateFormAddUser.js'></script>
-    <script src='../../assets/js/validateFormUpdateUser.js'></script>
+    <script src='../../assets/js/validateFormAdd.js'></script>
+    <script src='../../assets/js/validateFormUpdate.js'></script>
     ";
 
 $html .= $htmlModalAdd . $htmlTable . $htmlBottom;

@@ -4,7 +4,6 @@ namespace models;
 
 class KhoaHoc
 {
-    protected static $conn = NULL;
     private int $id;
     private string $tenKhoaHoc;
     private string $moTa;
@@ -86,7 +85,6 @@ class KhoaHoc
         $this->ngayTao = $ngayTao;
         $this->ngayCapNhat = $ngayCapNhat;
         $this->idNguoiDay = $idNguoiDay;
-        self::$conn = \models\connection::getConnection();
     }
 
     // Get date time now
@@ -99,8 +97,8 @@ class KhoaHoc
     // Lấy danh sách khóa học
     public function getAll() : array
     {
-        $sql = "SELECT id, tenkhoahoc, mota, ngaytao, ngaycapnhat, nguoidayId FROM khoahoc";
-        $result = $this->conn->query($sql);
+        $sql = "SELECT * FROM khoahoc";
+        $result = connection::getConnection()->query($sql);
         $lstKhoaHoc = [];
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -122,7 +120,7 @@ class KhoaHoc
     public function getById($id) : KhoaHoc|null
     {
         $sql = "SELECT id, tenkhoahoc, mota, ngaytao, ngaycapnhat, nguoidayId FROM khoahoc WHERE id = '$id'";
-        $result = $this->conn->query($sql);
+        $result = connection::getConnection()->query($sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $khoaHoc = new KhoaHoc(
@@ -142,19 +140,13 @@ class KhoaHoc
     public function add($khoaHoc) : bool {
         $sql = "INSERT INTO khoahoc(tenkhoahoc, mota, ngaytao, ngaycapnhat, nguoidayId) VALUES 
                 ('$khoaHoc->tenKhoaHoc', '$khoaHoc->moTa', '$khoaHoc->ngayTao', '$khoaHoc->ngayCapNhat', '$khoaHoc->idNguoiDay')";
-        if(self::$conn->query($sql)) {
-            return true;
-        }
-        return false;
+        return connection::getConnection()->query($sql);
     }
 
     // Cập nhật khóa học
     public function update($khoaHoc) : bool {
         $sql = "UPDATE khoahoc SET tenkhoahoc = '$khoaHoc->tenKhoaHoc', mota = '$khoaHoc->moTa', ngaycapnhat = '$khoaHoc->ngayCapNhat' WHERE id = '$khoaHoc->id'";
-        if(self::$conn->query($sql)) {
-            return true;
-        }
-        return false;
+        return connection::getConnection()->query($sql);
     }
 
     // Xóa khóa học và các bảng liên quan (nếu có)
@@ -163,9 +155,6 @@ class KhoaHoc
                 LEFT JOIN lichhoc ON khoahoc.id = lichhoc.khoahocId
                 LEFT JOIN hocvien ON khoahoc.id = hocvien.khoahocId
                 WHERE khoahoc.id = '$id'";
-        if(self::$conn->query($sql)) {
-            return true;
-        }
-        return false;
+        return connection::getConnection()->query($sql);
     }
 }

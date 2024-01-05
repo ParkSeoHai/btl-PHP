@@ -32,7 +32,7 @@
                     </i>
                     <i class="bi bi-person"></i>
                     <div class="ms-2">
-                        <p class="name-user"><?php echo isset($user) ? $user->getten() : 'Error'; ?></p>
+                        <p class="name-user"><?php echo isset($userInfo) ? $userInfo->getTen() : 'Error'; ?></p>
                         <p class="role-user"><?php echo $role ?? 'Error'; ?></p>
                     </div>
                 </div>
@@ -60,6 +60,28 @@
         </div>
     </main>
 
+    <?php
+        // Print toast nếu có lỗi
+        if(isset($_COOKIE['message'])) {
+            $htmlToast = "
+                <div class='toast-main toast-container end-0 p-3' style='top: 64px;'>
+                    <div class='toast d-block fs-6 bg-white' role='alert' aria-live='assertive' aria-atomic='true'>
+                        <div class='toast-header'>
+                          <img src='../../assets/images/cocon..png' class='rounded me-2' style='width: 20px; height: 20px;' alt='...'>
+                          <strong class='me-auto fw-bold'>Thông báo</strong>
+                          <small class='text-body-secondary'>just now</small>
+                          <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+                        </div>
+                        <div class='toast-body'>
+                            {$_COOKIE['message']}
+                        </div>
+                    </div>
+                </div>
+                <script src='../../assets/js/handleToast.js'></script>
+            ";
+            echo $htmlToast;
+        }
+    ?>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -431,6 +431,7 @@ html, body {
     color: #333;
 }
 
+.table-content tbody td.actions button,
 .table-content tbody td.actions a {
     font-size: 1.4rem;
     padding: 4px 10px;
@@ -456,12 +457,12 @@ html, body {
 }
 
 /* Form add */
-.main-content .form-add {
+.main-content .modal .modal-content form {
     padding: 10px;
 }
 
-.main-content .form-add select,
-.main-content .form-add option,
-.main-content .form-add input {
+.main-content .modal .modal-content form select,
+.main-content .modal .modal-content form option,
+.main-content .modal .modal-content form input {
     font-size: 1.4rem;
 }

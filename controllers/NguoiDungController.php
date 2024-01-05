@@ -12,7 +12,6 @@ class NguoiDungController
 
     public function __construct()
     {
-
     }
 
     public function dangNhap($email, $password, $isRemember = false)

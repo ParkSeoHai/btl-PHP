@@ -85,18 +85,21 @@ class LichHoc
     }
 
     // Lấy lịch học theo khóa học
-    public function getByKhoaHocId(int $khoaHocId): LichHoc
+    public function getByKhoaHocId(int $khoaHocId): LichHoc|null
     {
         $sql = "SELECT * FROM lichhoc WHERE khoahocId = $khoaHocId";
         $result = connection::getConnection()->query($sql);
-        $row = $result->fetch_assoc();
-        $lichHoc = new LichHoc(
-            $row['id'],
-            $row['phonghoc'],
-            $row['ngayhoc'],
-            $row['khoahocId']
-        );
-        return $lichHoc;
+        if($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $lichHoc = new LichHoc(
+                $row['id'],
+                $row['phonghoc'],
+                $row['ngayhoc'],
+                $row['khoahocId']
+            );
+            return $lichHoc;
+        }
+        return null;
     }
 
     // Lấy tất cả lịch học
@@ -167,10 +170,17 @@ class LichHoc
         return $stmt->execute();
     }
 
-    // Xóa lịch học
+    // Xóa lịch học theo id
     public function delete(int $id): bool
     {
         $sql = "DELETE FROM lichhoc WHERE id = $id";
+        return connection::getConnection()->query($sql);
+    }
+
+    // Xóa lịch học theo id khóa học
+    public function deleteByKhoaHocId(int $idKhoaHoc): bool
+    {
+        $sql = "DELETE FROM lichhoc WHERE khoahocId = $idKhoaHoc";
         return connection::getConnection()->query($sql);
     }
 }

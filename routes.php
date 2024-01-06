@@ -10,6 +10,7 @@ $controllers = array(
         'qlnguoidung',
         'qllichhoc',
         'qlgiangvien',
+        'thongbao',
         'error'
     ],
 );

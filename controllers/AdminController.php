@@ -4,9 +4,12 @@ namespace controllers;
 
 use models\LichHoc;
 use models\NguoiDung;
+use models\ThongBao;
 
 require_once('../../models/NguoiDung.php');
+require_once('../../models/KhoaHoc.php');
 require_once('../../models/LichHoc.php');
+require_once('../../models/ThongBao.php');
 
 class AdminController
 {
@@ -15,6 +18,12 @@ class AdminController
 
     public function __construct()
     {
+    }
+
+    public function getDateTimeNow() : string
+    {
+        $date = new \DateTime();
+        return $date->format('Y-m-d H:i:s');
     }
 
     // Check email đã tồn tại hay chưa? (True if exist, false if not exist)
@@ -117,6 +126,54 @@ class AdminController
         } else {
             setcookie('message', 'Xóa lịch học thất bại', time() + 1, '/');
             header("Location: /btl/index.php?controller=Pages&action=qllichhoc");
+        }
+    }
+
+    // Thêm thông báo
+    public function addThongBao($title, $content, $idNguoiTao) : void {
+        $thongBao = new ThongBao();
+        $thongBao->setTieuDe($title);
+        $thongBao->setNoiDung($content);
+        $thongBao->setNgayTao($this->getDateTimeNow());
+        $thongBao->setNgayCapNhat($this->getDateTimeNow());
+        $thongBao->setIdNguoiTao($idNguoiTao);
+        $isAdd = $thongBao->add($thongBao);
+        if($isAdd) {
+            setcookie('message', 'Thêm thông báo thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=thongbao");
+        } else {
+            setcookie('message', 'Thêm thông báo thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=thongbao");
+        }
+    }
+
+    // Sửa thông báo
+    public function updateThongBao($id, $title, $content) : void {
+        $thongBao = new ThongBao();
+        $thongBao->setId($id);
+        $thongBao->setTieuDe($title);
+        $thongBao->setNoiDung($content);
+        $thongBao->setNgayCapNhat($this->getDateTimeNow());
+        $isUpdate = $thongBao->update($thongBao);
+        if($isUpdate) {
+            setcookie('message', 'Cập nhật thông báo thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=thongbao");
+        } else {
+            setcookie('message', 'Cập nhật thông báo thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=thongbao");
+        }
+    }
+
+    // Xóa thông báo
+    public function removeThongBao($id) : void {
+        $thongBao = new ThongBao();
+        $isRemove = $thongBao->delete($id);
+        if($isRemove) {
+            setcookie('message', 'Xóa thông báo thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=thongbao");
+        } else {
+            setcookie('message', 'Xóa thông báo thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=thongbao");
         }
     }
 }

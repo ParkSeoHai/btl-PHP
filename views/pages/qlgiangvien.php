@@ -86,9 +86,9 @@ if(isset($listTeacher)) {
                                                 </div>
                                                 <div class='block-schedule'>
                                                     <div class='item-content-bottom'>
-                                                        <p class='item-content-bottom-desc'>
+                                                        <div class='item-content-bottom-desc'>
                                                             Mô tả: {$course["moTa"]}
-                                                        </p>
+                                                        </div>
                                                     </div> 
                                                     <!-- Modal lịch học -->
                                                     <div class='modal-schedule d-none'>
@@ -103,13 +103,17 @@ if(isset($listTeacher)) {
 
                 // Hiển thị lịch học
                 if(isset($course["schedule"])) {
-                    // Format date
-                    $course["schedule"]->setThoiGianBatDau(date('m-d-Y', strtotime($course["schedule"]->getThoiGianBatDau())));
+                    if(!$course["schedule"] == null) {
+                        // Format date
+                        $course["schedule"]->setThoiGianBatDau(date('m-d-Y', strtotime($course["schedule"]->getThoiGianBatDau())));
 
-                    $html .= "    <span class='pb-2 d-block'>{$course["schedule"]->getPhongHoc()}</span>
+                        $html .= "<span class='pb-2 d-block'>{$course["schedule"]->getPhongHoc()}</span>
                                   <span class='pb-2 d-block'>Ngày bắt đầu: {$course["schedule"]->getThoiGianBatDau()}</span>
                                   <span class='pb-2 d-block'>Giảng viên: {$item["ten"]}</span> ";
-
+                    } else {
+                        $html .= "<span class='pb-2 d-block'>Khóa học chưa có lịch học</span>
+                                  <span class='pb-2 d-block'>Giảng viên: {$item["ten"]}</span> ";
+                    }
                 }
 
                 $html .= "                                           </div>

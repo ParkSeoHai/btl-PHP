@@ -84,22 +84,19 @@ class LichHoc
         $this->khoaHocId = $khoaHocId;
     }
 
-    // Lấy danh sách lịch học theo khóa học
-    public function getByKhoaHocId(int $khoaHocId): array
+    // Lấy lịch học theo khóa học
+    public function getByKhoaHocId(int $khoaHocId): LichHoc
     {
         $sql = "SELECT * FROM lichhoc WHERE khoahocId = $khoaHocId";
         $result = connection::getConnection()->query($sql);
-        $lichHocList = array();
-        while ($row = $result->fetch_assoc()) {
-            $lichHoc = new LichHoc(
-                $row['id'],
-                $row['phonghoc'],
-                $row['ngayhoc'],
-                $row['khoahocId']
-            );
-            array_push($lichHocList, $lichHoc);
-        }
-        return $lichHocList;
+        $row = $result->fetch_assoc();
+        $lichHoc = new LichHoc(
+            $row['id'],
+            $row['phonghoc'],
+            $row['ngayhoc'],
+            $row['khoahocId']
+        );
+        return $lichHoc;
     }
 
     // Lấy tất cả lịch học

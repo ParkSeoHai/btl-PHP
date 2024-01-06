@@ -67,6 +67,7 @@ if (!$conn) {
             noidung VARCHAR(1000) NOT NULL,
             ngaytao DATETIME NOT NULL,
             ngaycapnhat DATETIME NOT NULL,
+            isRead INT NOT NULL,
             nguoidungId INT NOT NULL,
             FOREIGN KEY (nguoidungId) REFERENCES nguoidung(id))engine=innoDB";
 

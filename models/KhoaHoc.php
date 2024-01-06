@@ -116,6 +116,28 @@ class KhoaHoc
         return $lstKhoaHoc;
     }
 
+    // Lấy danh sách khóa học theo id người dạy
+    public function getAllByIdNguoiDay($idNguoiDay) : array
+    {
+        $sql = "SELECT * FROM khoahoc WHERE nguoidayId = '$idNguoiDay'";
+        $result = connection::getConnection()->query($sql);
+        $lstKhoaHoc = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $khoaHoc = new KhoaHoc(
+                    $row['id'],
+                    $row['tenkhoahoc'],
+                    $row['mota'],
+                    $row['ngaytao'],
+                    $row['ngaycapnhat'],
+                    $row['nguoidayId']
+                );
+                array_push($lstKhoaHoc, $khoaHoc);
+            }
+        }
+        return $lstKhoaHoc;
+    }
+
     // Lấy khóa học theo id
     public function getById($id) : KhoaHoc|null
     {

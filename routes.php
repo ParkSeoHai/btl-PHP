@@ -2,9 +2,17 @@
 
 global $controller, $action;
 
+// Danh sách các controllers và các action có thể gọi ra từ controller đó.
 $controllers = array(
-    'Pages' => ['index', 'home', 'qlnguoidung', 'qllichhoc', 'error'],
-);  // Các controllers trong hệ thống và các action có thể gọi ra từ controller đó.
+    'Pages' => [
+        'index',
+        'home',
+        'qlnguoidung',
+        'qllichhoc',
+        'qlgiangvien',
+        'error'
+    ],
+);
 
 // Nếu các tham số nhận được từ URL không hợp lệ (không thuộc list controller và action có thể gọi
 // thì trang báo lỗi sẽ được gọi ra.

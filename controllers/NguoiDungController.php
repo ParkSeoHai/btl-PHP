@@ -46,7 +46,7 @@ class NguoiDungController
         if($user) {
             $this->nguoiDung = new NguoiDung();
             // Kiểm tra xem email đã tồn tại hay chưa?
-            if($this->nguoiDung->checkEmail($user->getEmail())) {
+            if($this->nguoiDung->checkEmail(0,$user->getEmail())) {
                 setcookie('errorRegister', 'Lỗi: Email đã tồn tại', time() + 1, '/');
                 header('location: /btl/views/pages/register.php');
             }

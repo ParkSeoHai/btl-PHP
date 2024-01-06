@@ -88,6 +88,26 @@ class PagesController extends BaseController
         $this->render('qlnguoidung', $data);
     }
 
+    public function qlkhoahoc(){
+        $this->nguoiDung = new NguoiDung();
+        // Lấy thông tin người dùng đang đăng nhập
+        $user = $this->nguoiDung->getById($this->userId);
+
+        // Lấy pagination từ URL nếu có
+        $pagination = $_GET['pag'] ?? 1;
+
+        // Số lượng khóa học trên 1 trang
+        $result_per_page = 10;
+
+        $data = array(
+            'title' => 'Quản lý người dùng',
+            'pagination' => $pagination,
+            'userInfo' => $user,
+            'role' => $this->nguoiDung->getRole($user->getIdQuyen()),
+        );
+        $this->render('qlkhoahoc', $data);
+    }
+
     // Trang quản lý lịch học
     public function qllichhoc() {
         $this->nguoiDung = new NguoiDung();

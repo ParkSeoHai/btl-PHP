@@ -46,7 +46,7 @@
             <div class="navbar-member d-flex flex-column">
                 <a href="/btl/index.php?controler=Pages&action=home" class="active"><i class="bi bi-houses"></i> Trang chủ</a>
                 <a href="/btl/index.php?controler=Pages&action=qlnguoidung"><i class="bi bi-universal-access"></i> Người dùng</a>
-                <a href=""><i class="bi bi-book"></i> Khóa học</a>
+                <a href="/btl/index.php?controler=Pages&action=qlkhoahoc"><i class="bi bi-book"></i> Khóa học</a>
                 <a href="/btl/index.php?controler=Pages&action=qllichhoc"><i class="bi bi-calendar-date"></i> Lịch Học</a>
                 <a href="/btl/index.php?controler=Pages&action=qlgiangvien"><i class="bi bi-person-fill-gear"></i> Giảng viên</a>
                 <a href=""><i class="bi bi-reception-4"></i> Thống kê</a>

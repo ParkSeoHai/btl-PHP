@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="05069736-c9aa-4f0b-aabd-292bd59763b2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/createDatabase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/GiangVien.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/GiangVien.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/KhoaHoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/KhoaHoc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/LichHoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/LichHoc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/application.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/application.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +67,7 @@
       <workItem from="1704254450330" duration="26551000" />
       <workItem from="1704302797522" duration="39736000" />
       <workItem from="1704436322859" duration="136000" />
-      <workItem from="1704436551652" duration="35519000" />
+      <workItem from="1704436551652" duration="36009000" />
     </task>
     <servers />
   </component>

@@ -135,44 +135,6 @@ class PagesController extends BaseController
         $this->giangVien = new GiangVien();
         $listTeacher = $this->giangVien->getAllByPagination(($pagination - 1) * $result_per_page, $result_per_page);
 
-        // Test
-        $item = array(
-            'id' => 1,
-            'name' => 'Nguyễn Văn A',
-            'courses' => [
-                'course1' => [
-                    'id' => 1,
-                    'name' => 'Lập trình web',
-                    'description' => 'Học lập trình web',
-                    'start_date' => '2021-10-10',
-                    'end_date' => '2021-12-10',
-                    'schedule' => [
-                        'schedule1' => [
-                            'id' => 1,
-                            'date' => '2021-10-10',
-                            'time' => '08:00',
-                            'duration' => '2h',
-                            'content' => 'Học HTML',
-                        ],
-                        'schedule2' => [
-                            'id' => 2,
-                            'date' => '2021-10-11',
-                            'time' => '08:00',
-                            'duration' => '2h',
-                            'content' => 'Học CSS',
-                        ],
-                    ]
-                ],
-                'course2' => [
-                    'id' => 2,
-                    'name' => 'Lập trình web',
-                    'description' => 'Học lập trình web',
-                    'start_date' => '2021-10-10',
-                    'end_date' => '2021-12-10',
-                ],
-            ]
-        );
-
         // Lấy tổng số giảng viên
         $total_records = count($this->giangVien->getAll());
 

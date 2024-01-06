@@ -6,7 +6,7 @@ class HocVien
 {
     private int $idKhoaHoc;
     private int $idNguoiDung;
-    private \DateTime $ngayDangKy;
+    private string $ngayDangKy;
 
     public function getIdKhoaHoc(): int
     {
@@ -28,20 +28,27 @@ class HocVien
         $this->idNguoiDung = $idNguoiDung;
     }
 
-    public function getNgayDangKy(): \DateTime
+    public function getNgayDangKy(): string
     {
         return $this->ngayDangKy;
     }
 
-    public function setNgayDangKy(\DateTime $ngayDangKy): void
+    public function setNgayDangKy(string $ngayDangKy): void
     {
         $this->ngayDangKy = $ngayDangKy;
     }
 
-    public function __construct(int $idKhoaHoc, int $idNguoiDung, \DateTime $ngayDangKy)
+    public function __construct(int $idKhoaHoc = 0, int $idNguoiDung = 0, string $ngayDangKy = "")
     {
         $this->idKhoaHoc = $idKhoaHoc;
         $this->idNguoiDung = $idNguoiDung;
         $this->ngayDangKy = $ngayDangKy;
+    }
+
+    // Xóa học viên theo id khóa học
+    public function deleteByKhoaHocId(int $idKhoaHoc,): bool
+    {
+        $sql = "DELETE FROM hocVien WHERE khoahocId = $idKhoaHoc";
+        return connection::getConnection()->query($sql);
     }
 }

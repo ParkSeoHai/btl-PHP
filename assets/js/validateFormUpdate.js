@@ -80,6 +80,22 @@ function validateFormAddUser(form) {
         }
     });
 
+    // Xử lý textarea
+    const textareas = form.querySelectorAll('textarea');
+    if(textareas) {
+        textareas.forEach(textarea => {
+            if(textarea.value === '') {
+                addError(textarea, 'Vui lòng nhập thông tin');
+                isSubmit = false;
+            } else {
+                if(textarea.parentElement.querySelector('.error-message')) {
+                    textarea.style.border = '1px solid #dee2e6';
+                    textarea.parentElement.querySelector('.error-message').remove();
+                }
+            }
+        });
+    }
+
     if(isSubmit) {
         form.submit();
     }

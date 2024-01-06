@@ -6,8 +6,6 @@ require_once('connection.php');
 
 class NguoiDung
 {
-    protected static $conn = NULL;
-
     private int $id;
     private string $ten;
     private string $email;
@@ -268,26 +266,26 @@ class NguoiDung
     // Xóa người dùng
     public function delete($id) : bool
     {
-        $sql = "DELETE nguoiDung, khoaHoc, hocVien, thongBao FROM nguoiDung 
-                LEFT JOIN khoaHoc ON khoaHoc.nguoidayId = nguoiDung.id 
-                LEFT JOIN hocVien ON hocVien.nguoiDungId = nguoiDung.id 
-                LEFT JOIN thongBao ON thongBao.nguoiDungId = nguoiDung.id 
-                WHERE nguoiDung.id = '$id'";
+        // Xóa khóa học nếu có
+        $khoaHocModel = new KhoaHoc();
+        $listKhoaHoc = $khoaHocModel->getAllByIdNguoiDay($id);
+        foreach ($listKhoaHoc as $khoaHoc) {
+            $khoaHocModel->delete($khoaHoc->getId());
+        }
+
+        // Xóa thông báo nếu có
+        $thongBaoModel = new ThongBao();
+        $listThongBao = $thongBaoModel->getAllByIdNguoiTao($id);
+        if(count($listThongBao) > 0) {
+            foreach ($listThongBao as $thongBao) {
+                $thongBaoModel->delete($thongBao->getId());
+            }
+        }
+
+        // Xóa người dùng
+        $sql = "DELETE FROM nguoiDung WHERE id = '$id'";
 
         return connection::getConnection()->query($sql);
     }
-    // Xóa các bảng có liên quan đến người dùng: khoahoc, hocvien, thongbao
-//    public function deleteAll($id) : bool
-//    {
-//        $sql = "DELETE nguoiDung, khoaHoc, hocVien, thongBao FROM nguoiDung
-//                LEFT JOIN khoaHoc ON khoaHoc.nguoidayId = nguoiDung.id
-//                LEFT JOIN hocVien ON hocVien.nguoiDungId = nguoiDung.id
-//                LEFT JOIN thongBao ON thongBao.nguoiDungId = nguoiDung.id
-//                WHERE nguoiDung.id = '$id'";
-//        if(self::$conn->query($sql)) {
-//            return true;
-//        }
-//        return false;
-//    }
 
 }

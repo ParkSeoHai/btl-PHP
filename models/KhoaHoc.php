@@ -2,6 +2,9 @@
 
 namespace models;
 
+require_once('connection.php');
+require_once('HocVien.php');
+
 class KhoaHoc
 {
     private int $id;
@@ -171,12 +174,18 @@ class KhoaHoc
         return connection::getConnection()->query($sql);
     }
 
-    // Xóa khóa học và các bảng liên quan (nếu có)
+    // Xóa khóa học
     public function delete($id) : bool {
-        $sql = "DELETE FROM khoahoc, lichhoc, hocvien FROM khoahoc
-                LEFT JOIN lichhoc ON khoahoc.id = lichhoc.khoahocId
-                LEFT JOIN hocvien ON khoahoc.id = hocvien.khoahocId
-                WHERE khoahoc.id = '$id'";
+        // Xóa lịch học nếu có
+        $lichHoc = new LichHoc();
+        $lichHoc->deleteByKhoaHocId($id);
+
+        // Xóa học viên nếu có
+        $hocVien = new HocVien();
+        $hocVien->deleteByKhoaHocId($id);
+
+        // Xoá khóa học
+        $sql = "DELETE FROM khoahoc WHERE id = $id";
         return connection::getConnection()->query($sql);
     }
 }

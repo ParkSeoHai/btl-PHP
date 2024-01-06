@@ -2,7 +2,11 @@
 const btnShows = document.querySelectorAll('.block-course .btn-show-schedule');
 if(btnShows) {
     btnShows.forEach(btn => {
-        btn.closest('.item-content').querySelector('.item-content-bottom').classList.add('w-100');
+        const contenBottom = btn.closest('.item-content').querySelector('.item-content-bottom');
+        contenBottom.classList.add('w-100');
+        contenBottom.style.maxHeight = '80px';
+        contenBottom.style.overflowY = 'scroll';
+
         btn.addEventListener('click', () => {
             if(btn.closest('.item-content')) {
                 // Ẩn hết modal đang hiện
@@ -12,6 +16,8 @@ if(btnShows) {
 
                 const modal = btn.closest('.item-content').querySelector('.modal-schedule');
                 modal.classList.remove('d-none');
+                contenBottom.style.maxHeight = 'none';
+                contenBottom.style.overflowY = 'hidden';
             }
         });
     });

@@ -191,6 +191,53 @@ class NguoiDung
         return $listUser;
     }
 
+    // Lấy danh sách người dùng descending
+    public function getAllByDesc() : array
+    {
+        $sql = "SELECT * FROM nguoiDung ORDER BY id DESC";
+        $result = connection::getConnection()->query($sql);
+        $listUser = array();
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $user = array(
+                    'id' => $row['id'],
+                    'hoten' => $row['hoten'],
+                    'email' => $row['email'],
+                    'matkhau' => $row['matkhau'],
+                    'sodienthoai' => $row['sodienthoai'],
+                    'ngaytao' => $row['ngaytao'],
+                    'quyenId' => $row['quyenId'],
+                    'quyen' => $this->getRole($row['quyenId'])
+                );
+                array_push($listUser, $user);
+            }
+        }
+        return $listUser;
+    }
+
+    // Lấy danh sách người dùng theo quyền
+    public function getAllByRole($idQuyen) : array
+    {
+        $sql = "SELECT * FROM nguoiDung WHERE quyenId = '$idQuyen'";
+        $result = connection::getConnection()->query($sql);
+        $listUser = array();
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $user = new NguoiDung(
+                    $row['id'],
+                    $row['hoten'],
+                    $row['email'],
+                    $row['matkhau'],
+                    $row['sodienthoai'],
+                    $row['ngaytao'],
+                    $row['quyenId']
+                );
+                array_push($listUser, $user);
+            }
+        }
+        return $listUser;
+    }
+
     // Lấy danh sách người dùng theo pagination
     public function getAllByPagination($page_first_result, $results_per_page) : array
     {

@@ -3,6 +3,7 @@
 namespace controllers;
 
 use models\GiangVien;
+use models\HocVien;
 use models\KhoaHoc;
 use models\LichHoc;
 use models\NguoiDung;
@@ -16,6 +17,7 @@ require('./models/LichHoc.php');
 require('./models/KhoaHoc.php');
 require('./models/GiangVien.php');
 require('./models/ThongBao.php');
+require('./models/HocVien.php');
 
 class PagesController extends BaseController
 {
@@ -38,16 +40,35 @@ class PagesController extends BaseController
         $this->render('index', array(),false);
     }
 
+    // Trang chủ
     public function home()
     {
         $this->nguoiDung = new NguoiDung();
         // Lấy thông tin người dùng đang đăng nhập
         $user = $this->nguoiDung->getById($this->userId);
 
+        // Lấy danh sách người dùng
+        $listUser = $this->nguoiDung->getAllByDesc();
+
+        // Lấy tổng số giảng viên
+        $totalGiangVien = count($this->nguoiDung->getAllByRole(2));
+
+        // Lấy tổng số học viên
+        $hocvienModel = new HocVien();
+        $totalHocVien = $hocvienModel->getTotal();
+
+        // Lấy danh sách khóa học
+        $this->khoaHoc = new KhoaHoc();
+        $listKhoaHoc = $this->khoaHoc->getAllByDesc();
+
         $data = array(
             'title' => 'Trang chủ',
             'userInfo' => $user,
-            'role' => $this->nguoiDung->getRole($user->getIdQuyen())
+            'role' => $this->nguoiDung->getRole($user->getIdQuyen()),
+            'listKhoaHoc' => $listKhoaHoc,
+            'totalGiangVien' => $totalGiangVien,
+            'listUser' => $listUser,
+            'totalHocVien' => $totalHocVien
         );
 
         $this->render('home', $data);

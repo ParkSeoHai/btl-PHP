@@ -2,6 +2,8 @@
 
 namespace models;
 
+require_once('connection.php');
+
 class HocVien
 {
     private int $idKhoaHoc;
@@ -43,6 +45,15 @@ class HocVien
         $this->idKhoaHoc = $idKhoaHoc;
         $this->idNguoiDung = $idNguoiDung;
         $this->ngayDangKy = $ngayDangKy;
+    }
+
+    // Get tổng số học viên
+    public function getTotal(): int
+    {
+        $sql = "SELECT COUNT(*) AS total FROM hocVien";
+        $result = connection::getConnection()->query($sql);
+        $row = $result->fetch_assoc();
+        return $row['total'];
     }
 
     // Xóa học viên theo id khóa học

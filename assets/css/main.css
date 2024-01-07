@@ -12,9 +12,6 @@ html, body {
     display: flex;
     align-items: center;
 }
-.img-index{
-    width: 500px;
-}
 .img-index img{
     width: 100%;
     border-radius: 40px;
@@ -395,6 +392,7 @@ html, body {
     height: calc(100% - 40px);
     width: 100%;
     background-color: #fff;
+    overflow: hidden;
 }
 
 .main-content .header-content {
@@ -447,13 +445,6 @@ html, body {
 
 .bottom-content .pagination .page-item a {
     font-size: 1.4rem;
-}
-
-@media (min-width: 1300px) {
-    .main-content .body-content {
-        height: auto;
-        overflow-y: unset;
-    }
 }
 
 /* Form add */
@@ -549,4 +540,133 @@ html, body {
 .modal .block-schedule .modal-schedule-content-header-title {
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+/* Home */
+.main-content .box-total-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.main-content .box-total-list .box-total-item {
+    padding: 10px 50px;
+    background-color: #6b6b6b;
+    color: #fff;
+}
+
+.main-content .box-total-item-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.main-content .box-total-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.main-content .box-total-item-icon i {
+    font-size: 2.5rem;
+    color: #156669;
+}
+
+.main-content .box-total-item-icon p {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.table-content-list .table-tile {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.table-content-list .table-content tbody td {
+    color: #333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media (min-width: 1300px) {
+    .main-content .body-content {
+        height: auto;
+        overflow-y: unset;
+    }
+}
+
+@media (max-width: 1300px) {
+    .login-view-content,
+    .register-view-content,
+    .fogot-pass-view-content {
+        width: 30%;
+    }
+    .login-view,
+    .register-view,
+    .fogot-pass-view {
+        height: 100vh;
+    }
+    .login-view-content h1,
+    .register-view-content h1,
+    .fogot-pass-view-content h1 {
+        font-size: 2.2rem;
+    }
+    .login-view-content .btn-login button,
+    .register-view-content .btn-register {
+        padding: 10px;
+        width: 100%;
+    }
+    .login-view-content .btn-login {
+        padding-bottom: 15px;
+    }
+    .login-view-content .remember-fogot-pass {
+        margin: 20px 0;
+    }
+
+    .login-view-content .btn-login {
+        margin: 0;
+    }
+    .register-view-content .btn-register
+     {
+        margin: 0;
+    }
+
+    .login-view-content i,
+    .register-view-content i,
+    .fogot-pass-view-content i {
+        font-size: 3rem;
+    }
+    .register-view-content .checkbox-dksd {
+        margin-bottom: 20px;
+    }
+    .register-view-content .input-email,
+    .register-view-content .password,
+    .register-view-content .password-lv2,
+    .register-view-content .user-name {
+        margin-bottom: 12px;
+    }
+
+    .fogot-pass-view-content .verification-codes {
+        margin-left: 0;
+    }
+
+    .title-index h1 {
+        font-size: 5rem;
+    }
+
+    .title-index {
+        padding-left: 30px;
+    }
+
+    .title-index a {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+
+    .main-index {
+        min-height: 100vh;
+    }
 }

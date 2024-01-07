@@ -3,7 +3,6 @@
 namespace models;
 
 require_once('connection.php');
-require_once('HocVien.php');
 
 class KhoaHoc
 {
@@ -112,6 +111,34 @@ class KhoaHoc
                     $row['ngaytao'],
                     $row['ngaycapnhat'],
                     $row['nguoidayId']
+                );
+                array_push($lstKhoaHoc, $khoaHoc);
+            }
+        }
+        return $lstKhoaHoc;
+    }
+
+    // Lấy danh sách khoa học theo id giảm dần
+    public function getAllByDesc() : array
+    {
+        // Lấy danh sách khóa học
+        $sql = "SELECT * FROM khoahoc ORDER BY id DESC";
+        $result = connection::getConnection()->query($sql);
+        $lstKhoaHoc = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Lấy người dạy
+                $modelNguoiDung = new NguoiDung();
+                $nguoiDay = $modelNguoiDung->getById($row['nguoidayId']);
+
+                $khoaHoc = array(
+                    'id' => $row['id'],
+                    'tenkhoahoc' => $row['tenkhoahoc'],
+                    'mota' => $row['mota'],
+                    'ngaytao' => $row['ngaytao'],
+                    'ngaycapnhat' => $row['ngaycapnhat'],
+                    'nguoidayId' => $row['nguoidayId'],
+                    'nguoiday' => $nguoiDay->getTen()
                 );
                 array_push($lstKhoaHoc, $khoaHoc);
             }

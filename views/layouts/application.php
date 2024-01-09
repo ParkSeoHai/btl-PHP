@@ -44,13 +44,13 @@
         <!-- Navbar -->
         <nav class="navbar-content">
             <div class="navbar-member d-flex flex-column">
-                <a href="/btl/index.php?controler=Pages&action=home" class="active"><i class="bi bi-houses"></i> Trang chủ</a>
-                <a href="/btl/index.php?controler=Pages&action=qlnguoidung"><i class="bi bi-universal-access"></i> Người dùng</a>
+                <a href="/btl/index.php?controler=Pages&action=home" id="home"><i class="bi bi-houses"></i> Trang chủ</a>
+                <a href="/btl/index.php?controler=Pages&action=qlnguoidung" id="qlnguoidung"><i class="bi bi-universal-access"></i> Người dùng</a>
                 <a href=""><i class="bi bi-book"></i> Khóa học</a>
-                <a href="/btl/index.php?controler=Pages&action=qllichhoc"><i class="bi bi-calendar-date"></i> Lịch Học</a>
-                <a href="/btl/index.php?controler=Pages&action=qlgiangvien"><i class="bi bi-person-fill-gear"></i> Giảng viên</a>
-                <a href=""><i class="bi bi-reception-4"></i> Thống kê</a>
-                <a href="/btl/index.php?controler=Pages&action=thongbao"><i class="bi bi-megaphone"></i> Thông báo hệ thống</a>
+                <a href="/btl/index.php?controler=Pages&action=qllichhoc" id="qllichhoc"><i class="bi bi-calendar-date"></i> Lịch Học</a>
+                <a href="/btl/index.php?controler=Pages&action=qlgiangvien" id="qlgiangvien"><i class="bi bi-person-fill-gear"></i> Giảng viên</a>
+                <a href="/btl/index.php?controler=Pages&action=thongke" id="thongke"><i class="bi bi-reception-4"></i> Thống kê</a>
+                <a href="/btl/index.php?controler=Pages&action=thongbao" id="thongbao"><i class="bi bi-megaphone"></i> Thông báo hệ thống</a>
                 <a href="/btl/assets/php/logout.php" class="mt-5"><i class="bi bi-arrow-return-left"></i> Thoát</a>
             </div>
         </nav>
@@ -185,6 +185,19 @@
             ";
             echo $htmlToast;
         }
+    ?>
+
+    <!-- Active navbar -->
+    <?php
+    $navActive = $_GET['action'] ?? 'home';
+    echo "
+            <script>
+                const navActive = document.getElementById('$navActive');
+                if(navActive) {
+                    navActive.classList.add('active');
+                }
+            </script>
+        ";
     ?>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

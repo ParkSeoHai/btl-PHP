@@ -32,6 +32,7 @@ if (!$conn) {
             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             tenkhoahoc VARCHAR(255) NOT NULL,
             mota VARCHAR(1000) NOT NULL,
+            gia FLOAT NOT NULL,
             ngaytao DATETIME NOT NULL,
             ngaycapnhat DATETIME NOT NULL,
             nguoidayId INT NOT NULL,

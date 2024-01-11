@@ -8,6 +8,7 @@ $controllers = array(
         'index',
         'home',
         'qlnguoidung',
+        'qlkhoahoc',
         'qllichhoc',
         'qlgiangvien',
         'thongke',

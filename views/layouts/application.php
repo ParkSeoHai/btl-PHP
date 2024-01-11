@@ -46,7 +46,7 @@
             <div class="navbar-member d-flex flex-column">
                 <a href="/btl/index.php?controler=Pages&action=home" id="home"><i class="bi bi-houses"></i> Trang chủ</a>
                 <a href="/btl/index.php?controler=Pages&action=qlnguoidung" id="qlnguoidung"><i class="bi bi-universal-access"></i> Người dùng</a>
-                <a href=""><i class="bi bi-book"></i> Khóa học</a>
+                <a href="/btl/index.php?controler=Pages&action=qlkhoahoc" id="qlkhoahoc"><i class="bi bi-book"></i> Khóa học</a>
                 <a href="/btl/index.php?controler=Pages&action=qllichhoc" id="qllichhoc"><i class="bi bi-calendar-date"></i> Lịch Học</a>
                 <a href="/btl/index.php?controler=Pages&action=qlgiangvien" id="qlgiangvien"><i class="bi bi-person-fill-gear"></i> Giảng viên</a>
                 <a href="/btl/index.php?controler=Pages&action=thongke" id="thongke"><i class="bi bi-reception-4"></i> Thống kê</a>
@@ -56,11 +56,10 @@
         </nav>
         <!-- Content -->
         <div class="main-content">
-
             <!-- Test view
             <div class='content-body'>
                 <div class='header-content d-flex align-items-baseline justify-content-between'>
-                    <p class='header-title'>Thông báo hệ thống</p>
+                    <p class='header-title'>Quản lý khóa học</p>
                     <div class='header-action'>
                         <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAdd'>
                             Thêm mới
@@ -69,15 +68,28 @@
                             <div class='modal-dialog modal-dialog-scrollable'>
                                 <div class='modal-content'>
                                     <div class='modal-header'>
-                                        <h1 class='modal-title fs-4 fw-bold' id='exampleModalLabel'>Thêm thông báo</h1>
+                                        <h1 class='modal-title fs-4 fw-bold' id='exampleModalLabel'>Thêm khóa học mới</h1>
                                         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                                     </div>
-                                    <form action='../../assets/php/addThongBao.php' class='form-add' method='post'>
+                                    <form action='../../assets/php/addKhoaHoc.php' class='form-add' method='post'>
                                         <div class='mb-3'>
-                                            <input type='text' name='username' class='form-control' placeholder='Tiêu đề'>
+                                            <input type='text' name='courseName' class='form-control' placeholder='Tên khóa học'>
                                         </div>
                                         <div class='mb-3'>
-                                            <textarea name="noidung" rows="10" class='form-control textarea' placeholder="Nội dung"></textarea>
+                                            <textarea name="Description" rows="5" class='form-control textarea' placeholder="Mô tả"></textarea>
+                                        </div>
+                                        <div class='mb-3'>
+                                            <select class='form-select' name='teacherId' aria-label='Default select example'>
+                                                <option value='0' selected>Chọn giảng viên</option>
+                                                <option value='0'>ParkSeoHai2</option>
+                                            </select>
+                                        </div>
+                                        <div class='mb-3'>
+                                            <input type='text' name='coursePrice' class='form-control' placeholder='Giá khóa học'>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label fs-5">Ảnh khóa học</label>
+                                            <input class="form-control" type="file" id="formFile">
                                         </div>
                                         <div class='modal-footer'>
                                             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Hủy</button>
@@ -89,56 +101,77 @@
                         </div>
                     </div>
                 </div>
-                <div class='body-content table-responsive pt-4'>
+                <div class='body-content table pt-4'>
                     <table class='table table-light table-striped table-content'>
                         <thead>
                             <tr>
                                 <th scope='col'>STT</th>
-                                <th scope="col">Tiêu đề</th>
-                                <th scope='col'>Nội dung</th>
-                                <th scope='col'>Người tạo</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Tên khóa học</th>
+                                <th scope='col'>Giá bán</th>
                                 <th scope='col'>Ngày tạo</th>
-                                <th scope='col'>Ngày cập nhật</th>
                                 <th scope="col">Hành động</th>
                             </tr>
                         </thead>
                         <tbody class='table-group-divider'>
                             <tr>
-                                <th scope='row'>1</th>
-                                <th>Khóa học PHP mới</th>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut expedita iste laboriosam, laborum minima nisi possimus quidem rem sed tempore.</td>
-                                <th>Park Seo Hai</th>
-                                <th>Ngày tạo</th>
-                                <th>Ngày cập nhật</th>
+                                <th scope='row' class="text-center"><span style="position: relative; top: -20px">1</span></th>
+                                <td style="width: 10%;">
+                                    <span style="position: relative; top: 5px"><img src="../../assets/images/photo-book-index.jpg" style="width: 60px; height: 60px" alt=""></span>
+                                </td>
+                                <td style="width: 40%">
+                                    <span style="position: relative; top: -30px">Lorete laboriosam, laborum minima nisi possimus quidem rem sed tempore.</span>
+                                </td>
                                 <td>
-                                    <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#thongbaoId'>
-                                        <i class='bi bi-pen-fill'></i>
-                                    </button>
-                                    <div class='modal fade' id='thongbaoId' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                                        <div class='modal-dialog modal-dialog-scrollable'>
-                                            <div class='modal-content'>
-                                                <div class='modal-header'>
-                                                    <h1 class='modal-title fs-4 fw-bold' id='exampleModalLabel'>Sửa thông báo</h1>
-                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                    <span style="position:relative; top: -20px">3000000</span>
+                                </td>
+                                <td>
+                                    <span style="position:relative; top: -20px">11/1/2024</span>
+                                </td>
+                                <td>
+                                    <div style="position: relative; top: -20px">
+                                        <button type='button' class='btn btn-primary fs-4' data-bs-toggle='modal' data-bs-target='#thongbaoId'>
+                                            <i class='bi bi-pen-fill'></i>
+                                        </button>
+                                        <div class='modal fade' id='thongbaoId' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                            <div class='modal-dialog modal-dialog-scrollable'>
+                                                <div class='modal-content'>
+                                                    <div class='modal-header'>
+                                                        <h1 class='modal-title fs-4 fw-bold' id='exampleModalLabel'>Sửa thông tin khóa học</h1>
+                                                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                    </div>
+                                                    <form action='../../assets/php/updateKhoaHoc.php' class='form-update' method='post'>
+                                                        <div class='mb-3'>
+                                                            <input type='text' name='courseName' class='form-control' placeholder='Tên khóa học'>
+                                                        </div>
+                                                        <div class='mb-3'>
+                                                            <textarea name="Description" rows="5" class='form-control textarea' placeholder="Mô tả"></textarea>
+                                                        </div>
+                                                        <div class='mb-3'>
+                                                            <select class='form-select' name='teacherId' aria-label='Default select example'>
+                                                                <option value='0' selected>Chọn giảng viên</option>
+                                                                <option value='0'>ParkSeoHai2</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class='mb-3'>
+                                                            <input type='text' name='coursePrice' class='form-control' placeholder='Giá khóa học'>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="formFile" class="form-label fs-5">Ảnh khóa học</label>
+                                                            <input class="form-control" type="file" id="formFile">
+                                                        </div>
+                                                        <div class='modal-footer'>
+                                                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Hủy</button>
+                                                            <button type='submit' class='btn btn-primary btn-submit btn-submit-update'>Lưu</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                                <form action='../../assets/php/addThongBao.php' class='form-add' method='post'>
-                                                    <div class='mb-3'>
-                                                        <input type='text' name='username' class='form-control' placeholder='Tiêu đề'>
-                                                    </div>
-                                                    <div class='mb-3'>
-                                                        <textarea name="noidung" rows="10" class='form-control textarea' placeholder="Nội dung"></textarea>
-                                                    </div>
-                                                    <div class='modal-footer'>
-                                                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Hủy</button>
-                                                        <button type='submit' class='btn btn-primary btn-submit btn-submit-add'>Lưu</button>
-                                                    </div>
-                                                </form>
                                             </div>
                                         </div>
+                                        <a href='/btl/assets/php/removeUser.php?id={$user->getId()}' title='Xóa' class='btn btn-danger fs-4'>
+                                            <i class='bi bi-x-circle-fill'></i>
+                                        </a>
                                     </div>
-                                    <a href='/btl/assets/php/removeUser.php?id={$user->getId()}' title='Xóa' class='btn btn-danger'>
-                                        <i class='bi bi-x-circle-fill'></i>
-                                    </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -157,6 +190,7 @@
             </div>
 
             <script src="../../assets/js/validateFormAdd.js"></script>
+            <script src="../../assets/js/validateFormUpdate.js"></script>
             -->
 
             <?php echo $content ?? 'Không có nội dung'; ?>

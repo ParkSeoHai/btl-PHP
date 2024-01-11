@@ -9,6 +9,7 @@ use models\LichHoc;
 use models\NguoiDung;
 use models\Quyen;
 use models\ThongBao;
+use models\ThongKe;
 
 require_once('BaseController.php');
 require('./models/NguoiDung.php');
@@ -18,6 +19,7 @@ require('./models/KhoaHoc.php');
 require('./models/GiangVien.php');
 require('./models/ThongBao.php');
 require('./models/HocVien.php');
+require('./models/ThongKe.php');
 
 class PagesController extends BaseController
 {
@@ -202,6 +204,37 @@ class PagesController extends BaseController
         $this->render('thongbaohethong', $data);
     }
 
+    // Trang thống kê báo cáo
+    public function thongke() {
+        $this->nguoiDung = new NguoiDung();
+        // Lấy thông tin người dùng đang đăng nhập
+        $user = $this->nguoiDung->getById($this->userId);
+
+        // Lấy year từ URL nếu có
+        $year = $_GET['year'] ?? date("Y");
+
+        // Lấy thông tin thống kê users
+        $thongKe = new ThongKe();
+        $dataThongKe = $thongKe->getData($year);
+
+        // Lấy data points cho chart price
+        $dataPointsPrice = $thongKe->getDataPricePoints($year);
+
+        $data = array(
+            'title' => 'Thống kê báo cáo',
+            'userInfo' => $user,
+            'role' => $this->nguoiDung->getRole($user->getIdQuyen()),
+            'year' => $year,
+            'dataThongKe' => $dataThongKe,
+            'dataPointsAdmin' => $thongKe->getDataPoints(1, $year),
+            'dataPointsTeacher' => $thongKe->getDataPoints(2, $year),
+            'dataPointsStudent' => $thongKe->getDataPoints(3, $year),
+            'dataPointsPrice' => $dataPointsPrice,
+        );
+        $this->render('thongkebaocao', $data, false);
+    }
+
+    // Trang báo lỗi
     public function error()
     {
         $this->render('error', array(), false);

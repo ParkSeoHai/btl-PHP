@@ -9,6 +9,8 @@ class KhoaHoc
     private int $id;
     private string $tenKhoaHoc;
     private string $moTa;
+    private float $giaBan;
+    private string $hinhAnh;
     private string $ngayTao;
     private string $ngayCapNhat;
     private int $idNguoiDay;
@@ -73,19 +75,43 @@ class KhoaHoc
         $this->idNguoiDay = $idNguoiDay;
     }
 
+    public function getGiaBan(): float
+    {
+        return $this->giaBan;
+    }
+
+    public function setGiaBan(float $giaBan): void
+    {
+        $this->giaBan = $giaBan;
+    }
+
+    public function getHinhAnh(): string
+    {
+        return $this->hinhAnh;
+    }
+
+    public function setHinhAnh(string $hinhAnh): void
+    {
+        $this->hinhAnh = $hinhAnh;
+    }
+
     public function __construct(
         int $id = 0,
         string $tenKhoaHoc = "",
         string $moTa = "",
+        string $hinhAnh = "",
         string $ngayTao = "",
         string $ngayCapNhat = "",
+        float $giaBan = 0,
         int $idNguoiDay = 0
     ) {
         $this->id = $id;
         $this->tenKhoaHoc = $tenKhoaHoc;
         $this->moTa = $moTa;
-        $this->ngayTao = $ngayTao;
-        $this->ngayCapNhat = $ngayCapNhat;
+        $this->hinhAnh = $hinhAnh;
+        $this->ngayTao = $this->getDateTimeNow();
+        $this->ngayCapNhat = $this->getDateTimeNow();
+        $this->giaBan = $giaBan;
         $this->idNguoiDay = $idNguoiDay;
     }
 
@@ -108,14 +134,39 @@ class KhoaHoc
                     $row['id'],
                     $row['tenkhoahoc'],
                     $row['mota'],
+                    $row['hinhAnh'],
                     $row['ngaytao'],
                     $row['ngaycapnhat'],
+                    $row['gia'],
                     $row['nguoidayId']
                 );
                 array_push($lstKhoaHoc, $khoaHoc);
             }
         }
         return $lstKhoaHoc;
+    }
+
+    // Lấy danh sách khóa học theo pagination
+    public function getAllByPagination($page_first_result, $results_per_page) : array {
+        $sql = "SELECT * FROM khoaHoc LIMIT $page_first_result, $results_per_page";
+        $result = connection::getConnection()->query($sql);
+        $listCourse = array();
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $course = new KhoaHoc(
+                    $row['id'],
+                    $row['tenkhoahoc'],
+                    $row['mota'],
+                    $row['hinhAnh'],
+                    $row['ngaytao'],
+                    $row['ngaycapnhat'],
+                    $row['gia'],
+                    $row['nguoidayId']
+                );
+                array_push($listCourse, $course);
+            }
+        }
+        return $listCourse;
     }
 
     // Lấy danh sách khoa học theo id giảm dần
@@ -135,9 +186,11 @@ class KhoaHoc
                     'id' => $row['id'],
                     'tenkhoahoc' => $row['tenkhoahoc'],
                     'mota' => $row['mota'],
+                    'hinhAnh' => $row['hinhAnh'],
                     'ngaytao' => $row['ngaytao'],
                     'ngaycapnhat' => $row['ngaycapnhat'],
                     'nguoidayId' => $row['nguoidayId'],
+                    'gia' => $row['gia'],
                     'nguoiday' => $nguoiDay->getTen()
                 );
                 array_push($lstKhoaHoc, $khoaHoc);
@@ -158,8 +211,10 @@ class KhoaHoc
                     $row['id'],
                     $row['tenkhoahoc'],
                     $row['mota'],
+                    $row['hinhAnh'],
                     $row['ngaytao'],
                     $row['ngaycapnhat'],
+                    $row['gia'],
                     $row['nguoidayId']
                 );
                 array_push($lstKhoaHoc, $khoaHoc);
@@ -179,8 +234,10 @@ class KhoaHoc
                 $row['id'],
                 $row['tenkhoahoc'],
                 $row['mota'],
+                $row['hinhAnh'],
                 $row['ngaytao'],
                 $row['ngaycapnhat'],
+                $row['gia'],
                 $row['nguoidayId']
             );
             return $khoaHoc;
@@ -189,15 +246,17 @@ class KhoaHoc
     }
 
     // Thêm khóa học
-    public function add($khoaHoc) : bool {
-        $sql = "INSERT INTO khoahoc(tenkhoahoc, mota, ngaytao, ngaycapnhat, nguoidayId) VALUES 
-                ('$khoaHoc->tenKhoaHoc', '$khoaHoc->moTa', '$khoaHoc->ngayTao', '$khoaHoc->ngayCapNhat', '$khoaHoc->idNguoiDay')";
+    public function add(KhoaHoc $khoaHoc) : bool {
+        $sql = "INSERT INTO khoahoc(tenkhoahoc, mota, ngaytao, ngaycapnhat, nguoidayId, gia, hinhAnh) VALUES 
+                ('$khoaHoc->tenKhoaHoc', '$khoaHoc->moTa', '$khoaHoc->ngayTao', '$khoaHoc->ngayCapNhat', '$khoaHoc->idNguoiDay',
+                $khoaHoc->giaBan, '$khoaHoc->hinhAnh')";
         return connection::getConnection()->query($sql);
     }
 
     // Cập nhật khóa học
-    public function update($khoaHoc) : bool {
-        $sql = "UPDATE khoahoc SET tenkhoahoc = '$khoaHoc->tenKhoaHoc', mota = '$khoaHoc->moTa', ngaycapnhat = '$khoaHoc->ngayCapNhat' WHERE id = '$khoaHoc->id'";
+    public function update(KhoaHoc $khoaHoc) : bool {
+        $sql = "UPDATE khoahoc SET tenkhoahoc = '$khoaHoc->tenKhoaHoc', mota = '$khoaHoc->moTa', ngaycapnhat = '$khoaHoc->ngayCapNhat',
+                gia = $khoaHoc->giaBan, hinhAnh = '$khoaHoc->hinhAnh' WHERE id = '$khoaHoc->id'";
         return connection::getConnection()->query($sql);
     }
 

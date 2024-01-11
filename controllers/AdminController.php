@@ -2,6 +2,7 @@
 
 namespace controllers;
 
+use models\KhoaHoc;
 use models\LichHoc;
 use models\NguoiDung;
 use models\ThongBao;
@@ -10,6 +11,7 @@ require_once('../../models/NguoiDung.php');
 require_once('../../models/KhoaHoc.php');
 require_once('../../models/LichHoc.php');
 require_once('../../models/ThongBao.php');
+require_once('../../models/HocVien.php');
 
 class AdminController
 {
@@ -174,6 +176,59 @@ class AdminController
         } else {
             setcookie('message', 'Xóa thông báo thất bại', time() + 1, '/');
             header("Location: /btl/index.php?controller=Pages&action=thongbao");
+        }
+    }
+
+    // Thêm khóa học
+    public function addCourse($courseName, $description, $urlImage, $coursePrice, $teacherId) : void {
+        $khoaHoc = new KhoaHoc();
+        $khoaHoc->setTenKhoaHoc($courseName);
+        $khoaHoc->setMoTa($description);
+        $khoaHoc->setHinhAnh($urlImage);
+        $khoaHoc->setGiaBan($coursePrice);
+        $khoaHoc->setNgayTao($this->getDateTimeNow());
+        $khoaHoc->setNgayCapNhat($this->getDateTimeNow());
+        $khoaHoc->setIdNguoiDay($teacherId);
+        $isAdd = $khoaHoc->add($khoaHoc);
+        if($isAdd) {
+            setcookie('message', 'Thêm khóa học thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qlkhoahoc");
+        } else {
+            setcookie('message', 'Thêm khóa học thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qlkhoahoc");
+        }
+    }
+
+    // Sửa khóa học
+    public function updateCourse($id, $courseName, $description, $urlImage, $coursePrice, $teacherId) : void {
+        $khoaHoc = new KhoaHoc();
+        $khoaHoc->setId($id);
+        $khoaHoc->setTenKhoaHoc($courseName);
+        $khoaHoc->setMoTa($description);
+        $khoaHoc->setHinhAnh($urlImage);
+        $khoaHoc->setGiaBan($coursePrice);
+        $khoaHoc->setNgayCapNhat($this->getDateTimeNow());
+        $khoaHoc->setIdNguoiDay($teacherId);
+        $isUpdate = $khoaHoc->update($khoaHoc);
+        if($isUpdate) {
+            setcookie('message', 'Cập nhật khóa học thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qlkhoahoc");
+        } else {
+            setcookie('message', 'Cập nhật khóa học thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qlkhoahoc");
+        }
+    }
+
+    // Xóa khóa học
+    public function removeKhoaHoc($id) : void {
+        $khoaHoc = new KhoaHoc();
+        $isRemove = $khoaHoc->delete($id);
+        if($isRemove) {
+            setcookie('message', 'Xóa khóa học thành công', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qlkhoahoc");
+        } else {
+            setcookie('message', 'Xóa khóa học thất bại', time() + 1, '/');
+            header("Location: /btl/index.php?controller=Pages&action=qlkhoahoc");
         }
     }
 }

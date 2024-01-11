@@ -127,7 +127,7 @@ if(isset($listKhoaHoc)) {
                     </tr>
         ";
         $stt++;
-        if($stt > 6) break;
+        if($stt > 5) break;
     }
     $html .= "
                 </tbody>

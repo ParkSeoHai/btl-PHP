@@ -19,7 +19,7 @@ class NguoiDungController
         $this->nguoiDung = new NguoiDung();
         $user = $this->nguoiDung->dangNhap($email, $password);
         if($user) {
-            if($user['idQuyen'] == 3){
+            if($user['idQuyen'] == 2 || $user['idQuyen'] == 3){
                 setcookie('errorLogin', 'Bạn không có quyền truy cập vào trang này', time() + 1, '/');
                 header('location: /btl/views/pages/login.php');
             } else {

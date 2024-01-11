@@ -75,7 +75,7 @@ if(isset($listTeacher)) {
                                         <div class='list-course'> ";
             foreach ($item["courses"] as $course) {
                 // Format date
-                $dateCoure = date('m-d-Y', strtotime($course["ngayTao"]));
+                $dateCoure = date('d-m-Y', strtotime($course["ngayTao"]));
                 $html .= "                  <div class='item-content'>
                                                 <div class='item-content-top'>
                                                     <div class='block d-flex align-items-baseline'>
@@ -105,7 +105,7 @@ if(isset($listTeacher)) {
                 if(isset($course["schedule"])) {
                     if(!$course["schedule"] == null) {
                         // Format date
-                        $course["schedule"]->setThoiGianBatDau(date('m-d-Y', strtotime($course["schedule"]->getThoiGianBatDau())));
+                        $course["schedule"]->setThoiGianBatDau(date('d-m-Y', strtotime($course["schedule"]->getThoiGianBatDau())));
 
                         $html .= "<span class='pb-2 d-block'>{$course["schedule"]->getPhongHoc()}</span>
                                   <span class='pb-2 d-block'>Ngày bắt đầu: {$course["schedule"]->getThoiGianBatDau()}</span>

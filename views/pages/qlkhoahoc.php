@@ -116,7 +116,7 @@ if(isset($listCourse) && count($listCourse) > 0) {
                                         </div>
                                         <form action='../../assets/php/updateKhoaHoc.php' class='form-update' method='post'>
                                             <div class='mb-3'>
-                                                <input type='text' name='courseId' value='{$course->getId()}' class='form-control'>
+                                                <input type='text' name='courseId' value='{$course->getId()}' hidden='hidden' class='form-control'>
                                             </div>
                                             <div class='mb-3'>
                                                 <input type='text' name='courseName' value='{$course->getTenKhoaHoc()}' class='form-control' placeholder='Tên khóa học'>

@@ -14,7 +14,7 @@ class NguoiDungController
     {
     }
 
-    public function dangNhap($email, $password, $isRemember = false)
+    public function dangNhap($email, $password, $isRemember = false) : void
     {
         $this->nguoiDung = new NguoiDung();
         $user = $this->nguoiDung->dangNhap($email, $password);
@@ -41,15 +41,21 @@ class NguoiDungController
         }
     }
 
-    public function dangKy($user)
+    public function checkEmail($email) : bool {
+        $this->nguoiDung = new NguoiDung();
+        // Kiểm tra xem email đã tồn tại hay chưa?
+        if($this->nguoiDung->checkEmail(0, $email)) {
+            setcookie('errorRegister', 'Lỗi: Email đã tồn tại', time() + 1, '/');
+            header('location: /btl/views/pages/register.php');
+            return true;
+        }
+        return false;
+    }
+
+    public function dangKy($user) : void
     {
         if($user) {
             $this->nguoiDung = new NguoiDung();
-            // Kiểm tra xem email đã tồn tại hay chưa?
-            if($this->nguoiDung->checkEmail(0, $user->getEmail())) {
-                setcookie('errorRegister', 'Lỗi: Email đã tồn tại', time() + 1, '/');
-                header('location: /btl/views/pages/register.php');
-            }
             // Đăng ký người dùng
             if($this->nguoiDung->dangKy($user)) {
                 header('location: /btl/views/pages/login.php');

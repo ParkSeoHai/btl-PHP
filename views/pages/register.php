@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Đăng Kí</title>
+    <title>Đăng Ký</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -15,7 +15,7 @@
 <body>
     <form class="register-view form-register" method="post" action="../../assets/php/register.php">
         <div class="register-view-content">
-            <h1>ĐĂNG KÍ</h1>
+            <h1>ĐĂNG KÝ</h1>
             <div class="error-register text-start text-danger mb-4 fw-bold">
                 <?php
                     if(isset($_COOKIE['errorRegister'])) {

@@ -135,7 +135,7 @@ class PagesController extends BaseController
         $total_records = count($this->khoaHoc->getAll());
 
         $data = array(
-            'title' => 'Quản lý người dùng',
+            'title' => 'Quản lý khóa học',
             'pagination' => $pagination,
             'userInfo' => $user,
             'role' => $this->nguoiDung->getRole($user->getIdQuyen()),

@@ -15,16 +15,8 @@ if(isset($_POST['courseName']) && isset($_POST['description']) && isset($_POST['
     require __DIR__ . '/../../vendor/autoload.php';
 
     // Initialize Cloudinary configuration
-    Configuration::instance([
-        "cloud" => [
-            "cloud_name" => "dm0czde4x",
-            "api_key" => "549139983968566",
-            "api_secret" => "4WO2sOPEJMrW91K0KVEFJXO2VFE"
-        ],
-        "url" => [
-            "secure" => true
-        ]
-    ]);
+    // Hidden API key and secret key
+
 
     try {
         // Instantiate UploadApi

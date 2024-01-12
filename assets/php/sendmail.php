@@ -11,11 +11,9 @@ function sendMail($email, $subject, $message) : bool {
         $mail = new PHPMailer(true);
         $mail->CharSet = "UTF-8";
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'hai01654010678@gmail.com';
-        $mail->Password = 'bahahfnurwtbtbte';
-        $mail->Port = 465;
+        // Hidden email and password
+
         $mail->SMTPSecure = 'ssl';
         $mail->isHTML(true);
 

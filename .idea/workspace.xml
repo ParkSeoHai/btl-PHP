@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05069736-c9aa-4f0b-aabd-292bd59763b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/btl-PHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/btl-PHP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/php/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/NguoiDungController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/NguoiDungController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/qlkhoahoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/qlkhoahoc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/thongkebaocao.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/thongkebaocao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/addKhoaHoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/addKhoaHoc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/sendmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/sendmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/updateKhoaHoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/updateKhoaHoc.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +96,7 @@
       <workItem from="1704806086433" duration="3762000" />
       <workItem from="1704811693159" duration="11772000" />
       <workItem from="1704893059403" duration="23691000" />
-      <workItem from="1705058936337" duration="10985000" />
+      <workItem from="1705058936337" duration="11986000" />
     </task>
     <servers />
   </component>

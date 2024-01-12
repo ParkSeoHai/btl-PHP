@@ -42,7 +42,7 @@
                         <label for="remember-pass">Remember me</label>
                     </div>
                     <div class="fogot-register">
-                        <a href="forgot-pass.php">Quên mật khẩu</a> / <a href="register.php">Đăng kí</a>
+                        <a href="forgot-pass.php">Quên mật khẩu</a> / <a href="register.php">Đăng ký</a>
                     </div>
                 </div>
                 <div class="btn-login">

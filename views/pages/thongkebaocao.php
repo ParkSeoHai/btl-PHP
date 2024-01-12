@@ -90,7 +90,7 @@ if(isset($dataPointsPrice)) {
         <div class="navbar-member d-flex flex-column">
             <a href="/btl/index.php?controler=Pages&action=home" id="home"><i class="bi bi-houses"></i> Trang chủ</a>
             <a href="/btl/index.php?controler=Pages&action=qlnguoidung" id="qlnguoidung"><i class="bi bi-universal-access"></i> Người dùng</a>
-            <a href=""><i class="bi bi-book"></i> Khóa học</a>
+            <a href="/btl/index.php?controler=Pages&action=qlkhoahoc" id="qlkhoahoc"><i class="bi bi-book"></i> Khóa học</a>
             <a href="/btl/index.php?controler=Pages&action=qllichhoc" id="qllichhoc"><i class="bi bi-calendar-date"></i> Lịch Học</a>
             <a href="/btl/index.php?controler=Pages&action=qlgiangvien" id="qlgiangvien"><i class="bi bi-person-fill-gear"></i> Giảng viên</a>
             <a href="/btl/index.php?controler=Pages&action=thongke" id="thongke"><i class="bi bi-reception-4"></i> Thống kê</a>

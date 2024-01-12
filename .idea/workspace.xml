@@ -5,20 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05069736-c9aa-4f0b-aabd-292bd59763b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/btl-PHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/btl-PHP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/NguoiDungController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/NguoiDungController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createDatabase.php" beforeDir="false" afterPath="$PROJECT_DIR$/createDatabase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/KhoaHoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/KhoaHoc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/application.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/qlkhoahoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/qlkhoahoc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/thongkebaocao.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/thongkebaocao.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -34,7 +39,23 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/cloudinary/cloudinary_php" />
+      <path value="$PROJECT_DIR$/vendor/cloudinary/transformation-builder-sdk" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -49,7 +70,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;parkseohai&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/PHP/baitapPhp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/PHP/PHPMailer&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -81,7 +102,8 @@
       <workItem from="1704639688552" duration="6970000" />
       <workItem from="1704806086433" duration="3762000" />
       <workItem from="1704811693159" duration="11772000" />
-      <workItem from="1704893059403" duration="21374000" />
+      <workItem from="1704893059403" duration="23691000" />
+      <workItem from="1705058936337" duration="10985000" />
     </task>
     <servers />
   </component>

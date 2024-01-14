@@ -58,6 +58,7 @@
                 <label for="agree">Tôi đồng ý với điều khoản sử dụng</label>
             </div>
             <button class="btn-register" type="submit">Đăng ký</button>
+            <a href="login.php" class="text-dark d-block pt-3 float-start">Đăng nhập</a>
         </div>
     </form>
     <script src="../../assets/js/validateFormRegister.js"></script>

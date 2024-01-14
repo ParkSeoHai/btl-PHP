@@ -14,11 +14,10 @@ function sendMail($email, $subject, $message) : bool {
         $mail->SMTPAuth = true;
         // Hidden email and password
 
-
         $mail->SMTPSecure = 'ssl';
         $mail->isHTML(true);
 
-        $mail->setFrom('hai01654010678@gmail.com', 'Park Seo Hai');
+        $mail->setFrom('anhhai282003@gmail.com', 'Park Seo Hai');
         $mail->addAddress($email);
         $mail->Subject = $subject;
         $mail->Body = $message;

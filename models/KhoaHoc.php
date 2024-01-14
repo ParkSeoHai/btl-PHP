@@ -223,28 +223,6 @@ class KhoaHoc
         return $lstKhoaHoc;
     }
 
-    // Lấy khóa học theo id
-    public function getById($id) : KhoaHoc|null
-    {
-        $sql = "SELECT id, tenkhoahoc, mota, ngaytao, ngaycapnhat, nguoidayId FROM khoahoc WHERE id = '$id'";
-        $result = connection::getConnection()->query($sql);
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $khoaHoc = new KhoaHoc(
-                $row['id'],
-                $row['tenkhoahoc'],
-                $row['mota'],
-                $row['hinhAnh'],
-                $row['ngaytao'],
-                $row['ngaycapnhat'],
-                $row['gia'],
-                $row['nguoidayId']
-            );
-            return $khoaHoc;
-        }
-        return null;
-    }
-
     // Thêm khóa học
     public function add(KhoaHoc $khoaHoc) : bool {
         $sql = "INSERT INTO khoahoc(tenkhoahoc, mota, ngaytao, ngaycapnhat, nguoidayId, gia, hinhAnh) VALUES 

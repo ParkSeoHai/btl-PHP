@@ -23,7 +23,6 @@ if (isset($_POST['courseId']) && isset($_POST['courseName']) && isset($_POST['de
     // Initialize Cloudinary configuration
     // Hidden API key and secret key
 
-
     try {
         // Instantiate UploadApi
         $uploadApi = new UploadApi();

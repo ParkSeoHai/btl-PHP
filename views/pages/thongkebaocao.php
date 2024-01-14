@@ -58,6 +58,7 @@ if(isset($dataPointsPrice)) {
     </style>
 </head>
 <body>
+
 <header>
     <form action="" class="header">
         <div class="header-content d-flex align-items-center justify-content-between">
@@ -101,14 +102,17 @@ if(isset($dataPointsPrice)) {
     <!-- Content -->
     <div class="main-content">
         <div class='content-body' style="overflow-y: auto">
-            <div class='header-content d-flex align-items-baseline'>
-                <p class='header-title'><?= $title ?></p>
-                <div class="d-flex align-items-baseline ps-4" style="width: 20%">
-                    <select class="form-select form-select-lg" id="year" aria-label="Small select example">
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                    </select>
+            <div class='header-content d-flex justify-content-between align-items-baseline'>
+                <div class="d-flex align-items-center">
+                    <p class='header-title'><?= $title ?></p>
+                    <div class="d-flex align-items-baseline ps-4">
+                        <select class="form-select form-select-lg" id="year" aria-label="Small select example">
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
                 </div>
+                <a href="../../assets/php/baoCaoDoanhThu.php?year=<?= $year ?>" class="btn btn-success fs-4">Export</a>
             </div>
             <div class="row pt-3">
                 <script>

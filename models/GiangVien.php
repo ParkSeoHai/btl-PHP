@@ -45,84 +45,83 @@ class GiangVien extends NguoiDung
     }
 
     // Lấy danh sách giảng viên theo pagination
+    // Đầu ra dạng
+    /* $item = array(
+        [
+            'id' => 1,
+            'name' => 'Nguyễn Văn A',
+            'courses' => [
+                'course1' => [
+                    'id' => 1,
+                    'name' => 'Lập trình web',
+                    'description' => 'Học lập trình web',
+                    'start_date' => '2021-10-10',
+                    'end_date' => '2021-12-10',
+                    'schedule' => [
+                        'schedule1' => [
+                            'id' => 1,
+                            'date' => '2021-10-10',
+                            'time' => '08:00',
+                            'duration' => '2h',
+                            'content' => 'Học HTML',
+                        ],
+                        'schedule2' => [
+                            'id' => 2,
+                            'date' => '2021-10-11',
+                            'time' => '08:00',
+                            'duration' => '2h',
+                            'content' => 'Học CSS',
+                        ],
+                    ]
+                ],
+                'course2' => [
+                    'id' => 2,
+                    'name' => 'Lập trình web',
+                    'description' => 'Học lập trình web',
+                    'start_date' => '2021-10-10',
+                    'end_date' => '2021-12-10',
+                ],
+            ]
+        ],
+        [
+            'id' => 1,
+            'name' => 'Nguyễn Văn A',
+            'courses' => [
+                'course1' => [
+                    'id' => 1,
+                    'name' => 'Lập trình web',
+                    'description' => 'Học lập trình web',
+                    'start_date' => '2021-10-10',
+                    'end_date' => '2021-12-10',
+                    'schedule' => [
+                        'schedule1' => [
+                            'id' => 1,
+                            'date' => '2021-10-10',
+                            'time' => '08:00',
+                            'duration' => '2h',
+                            'content' => 'Học HTML',
+                        ],
+                        'schedule2' => [
+                            'id' => 2,
+                            'date' => '2021-10-11',
+                            'time' => '08:00',
+                            'duration' => '2h',
+                            'content' => 'Học CSS',
+                        ],
+                    ]
+                ],
+                'course2' => [
+                    'id' => 2,
+                    'name' => 'Lập trình web',
+                    'description' => 'Học lập trình web',
+                    'start_date' => '2021-10-10',
+                    'end_date' => '2021-12-10',
+                ],
+            ]
+        ]
+    );*/
     public function getAllByPagination($page_first_result, $results_per_page) : array
     {
-        // Đầu ra dạng
-        /* $item = array(
-            [
-                'id' => 1,
-                'name' => 'Nguyễn Văn A',
-                'courses' => [
-                    'course1' => [
-                        'id' => 1,
-                        'name' => 'Lập trình web',
-                        'description' => 'Học lập trình web',
-                        'start_date' => '2021-10-10',
-                        'end_date' => '2021-12-10',
-                        'schedule' => [
-                            'schedule1' => [
-                                'id' => 1,
-                                'date' => '2021-10-10',
-                                'time' => '08:00',
-                                'duration' => '2h',
-                                'content' => 'Học HTML',
-                            ],
-                            'schedule2' => [
-                                'id' => 2,
-                                'date' => '2021-10-11',
-                                'time' => '08:00',
-                                'duration' => '2h',
-                                'content' => 'Học CSS',
-                            ],
-                        ]
-                    ],
-                    'course2' => [
-                        'id' => 2,
-                        'name' => 'Lập trình web',
-                        'description' => 'Học lập trình web',
-                        'start_date' => '2021-10-10',
-                        'end_date' => '2021-12-10',
-                    ],
-                ]
-            ],
-            [
-                'id' => 1,
-                'name' => 'Nguyễn Văn A',
-                'courses' => [
-                    'course1' => [
-                        'id' => 1,
-                        'name' => 'Lập trình web',
-                        'description' => 'Học lập trình web',
-                        'start_date' => '2021-10-10',
-                        'end_date' => '2021-12-10',
-                        'schedule' => [
-                            'schedule1' => [
-                                'id' => 1,
-                                'date' => '2021-10-10',
-                                'time' => '08:00',
-                                'duration' => '2h',
-                                'content' => 'Học HTML',
-                            ],
-                            'schedule2' => [
-                                'id' => 2,
-                                'date' => '2021-10-11',
-                                'time' => '08:00',
-                                'duration' => '2h',
-                                'content' => 'Học CSS',
-                            ],
-                        ]
-                    ],
-                    'course2' => [
-                        'id' => 2,
-                        'name' => 'Lập trình web',
-                        'description' => 'Học lập trình web',
-                        'start_date' => '2021-10-10',
-                        'end_date' => '2021-12-10',
-                    ],
-                ]
-            ]
-        );*/
-
         // Lấy danh sách giảng viên
         $sql = "SELECT * FROM nguoiDung WHERE quyenId = 2 LIMIT $page_first_result, $results_per_page";
         $result = connection::getConnection()->query($sql);

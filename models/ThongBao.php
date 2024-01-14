@@ -212,13 +212,4 @@ class ThongBao
         $stmt->bind_param("i", $id);
         return $stmt->execute();
     }
-
-    // Xóa thông báo theo id người dùng
-    public function deleteByIdNguoiDung(int $idNguoiDung) : bool
-    {
-        $sql = "DELETE FROM thongbao WHERE nguoidungId = ?";
-        $stmt = connection::getConnection()->prepare($sql);
-        $stmt->bind_param("i", $idNguoiDung);
-        return $stmt->execute();
-    }
 }

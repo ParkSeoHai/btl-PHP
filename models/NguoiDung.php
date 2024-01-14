@@ -142,7 +142,7 @@ class NguoiDung
     // Phương thức kiểm tra xem email đã tồn tại hay chưa? (true: đã tồn tại, false: chưa tồn tại)
     public function checkEmail($id, $email) : bool
     {
-        // Nếu id > 0 thì là cập nhật người dùng, không kiểm tra email
+        // Nếu id > 0 thì là cập nhật người dùng, 0 thì kiểm tra email
         $sql = "SELECT email FROM nguoiDung WHERE id = '$id'";
         $result = connection::getConnection()->query($sql);
         $row = $result->fetch_assoc();
@@ -335,4 +335,9 @@ class NguoiDung
         return connection::getConnection()->query($sql);
     }
 
+    public function resetPassword($email, $newPassword) : bool
+    {
+        $sql = "UPDATE nguoiDung SET matkhau = '$newPassword' WHERE email = '$email'";
+        return connection::getConnection()->query($sql);
+    }
 }

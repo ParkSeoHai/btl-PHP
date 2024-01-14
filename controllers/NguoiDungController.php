@@ -69,6 +69,18 @@ class NguoiDungController
         }
     }
 
+    public function resetPassword($email, $newPassword) : void
+    {
+        $this->nguoiDung = new NguoiDung();
+        if($this->nguoiDung->resetPassword($email, $newPassword)) {
+            setcookie('success', 'Đổi mật khẩu thành công', time() + 1, '/');
+            header('location: /btl/views/pages/forgot-pass.php');
+        } else {
+            setcookie('error', 'Lỗi: Đổi mật khẩu không thành công', time() + 1, '/');
+            header('location: /btl/views/pages/forgot-pass.php');
+        }
+    }
+
     public function dangXuat()
     {
         $this->nguoiDung = new NguoiDung();
